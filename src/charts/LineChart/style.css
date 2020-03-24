@@ -1,0 +1,25 @@
+.dot,
+.mouseover,
+.mouseout {
+    fill: dodgerblue;
+    stroke: #fff;
+}
+
+.line {
+    fill: none;
+    stroke: dodgerblue;
+    stroke-width: 3;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 80px;
+    height: auto;
+    padding: 2px;
+    font: 15px sans-serif;
+    background: #fff;
+    border: 0px;
+    border-radius: 5px;
+    pointer-events: none;
+}

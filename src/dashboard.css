@@ -1,0 +1,61 @@
+.flex-container {
+    display: flex;
+    height: 920px;
+}
+
+.sider {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: #eee;
+}
+
+.userprofile {
+    height: 200px;
+}
+
+.usergender {
+    height: 300px;
+}
+
+.genderfilter {
+    height: 400px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.content1 {
+    height: 320px;
+}
+
+.content2 {
+    display: flex;
+    height: 600px;
+}
+
+.userage {
+    width: 910px;
+}
+
+.userlist {
+    background-color: #eee;
+    width: 300px;
+}
+
+.pane {
+    background: #fff;
+    border: solid 2px #eee;
+    margin: 5px, 5px, 5px, 5px;
+    border-radius: 5px;
+}
+
+.header {
+    background-color: #eee;
+    margin: 5px;
+    padding: 4px, 0px, 0px, 10px;
+    border-radius: 5px;
+    height: 30px;
+}
