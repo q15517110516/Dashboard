@@ -1,13 +1,16 @@
+.linechart {
+    background-color: #525F7F;
+}
+
 .dot,
 .mouseover,
 .mouseout {
-    fill: dodgerblue;
-    stroke: #fff;
+    fill: #BA54F5;
 }
 
 .line {
     fill: none;
-    stroke: dodgerblue;
+    stroke: #BA54F5;
     stroke-width: 3;
 }
 
