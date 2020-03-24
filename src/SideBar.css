@@ -1,0 +1,14 @@
+.sidebar {
+    background-color: #1e1e2f;
+    height: 950px;
+    width: 100%;
+}
+
+.side-wrapper {
+    background-color: #BA54F5;
+    height: 100%;
+}
+
+.nav-link {
+    color: #ffffff;
+}

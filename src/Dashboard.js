@@ -7,6 +7,7 @@ import PerformanceSheet from './views/PerformanceSheet/PerformanceSheet';
 import Age from './views/Age/Age';
 import UserList from './views/UserList/UserList';
 import './dashboard.css';
+import SideBar from './SideBar';
 
 
 export class Dashboard extends Component {
@@ -50,7 +51,9 @@ export class Dashboard extends Component {
           {/* Sider flexbox */}
           <div className="sider">
             <div className="userprofile">
-              <UserProfile user={selectedUser}/>
+              {/*<UserProfile user={selectedUser}/>*/}
+              <SideBar/>
+
             </div>
             <div className="usergender">
               <Gender data={filteredData}/>
