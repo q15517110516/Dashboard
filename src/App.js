@@ -42,23 +42,25 @@ export class App extends Component {
         return (
             <div>
                 <div className="flex-container">
+                    
                     <div className="sider">
-                        <SideBar/>
+                        <SideBar/>   
                     </div>
+                    
                     <div className="content">
                         <div className="content1">
                             <div className="performancesheet">
-                                {/*<PerformanceSheet user={selectedUser}/>*/}
+                                <PerformanceSheet user={selectedUser}/>
                             </div>
                         </div>
 
                 
                         <div className="content2">
                             <div className="userage">
-                                {/*<Age data={filteredData}/>*/}
+                                <Age data={filteredData}/>
                             </div>
                             <div className="userlist">
-                                {/*<UserList data={filteredData} changeSelectUser={this.changeSelectUser}/>*/}
+                                <UserList data={filteredData} changeSelectUser={this.changeSelectUser}/>
                             </div>
                         </div>
                     </div>

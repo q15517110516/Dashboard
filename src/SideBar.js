@@ -15,21 +15,19 @@ export class SideBar extends Component {
     render() {
         return (
             <div className="sidebar">
-                <div className="side-wrapper">
-                    <nav className="navbar">
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Home</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Dashboard</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Users</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+                <nav className="navbar">
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Home</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Dashboard</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Users</a>
+                        </li>
+                    </ul>
+                </nav>
                 
             </div>
         )

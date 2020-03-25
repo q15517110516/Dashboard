@@ -1,12 +1,15 @@
 .sidebar {
-    background-color: #1e1e2f;
-    height: 950px;
-    width: 100%;
+    height: 90%;
+    width: 230px;
+    border-radius: 10px;
+    /* margin: 20px 20px 20px 20px; */
+    background-color: #E14ECA;
+    z-index: 1;
+    position: fixed;
 }
 
-.side-wrapper {
-    background-color: #BA54F5;
-    height: 100%;
+.navbar {
+    /* height: 100%; */
 }
 
 .nav-link {

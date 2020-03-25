@@ -1,13 +1,19 @@
-.sider {
-    width: 300px;
-    position: fixed;
-    /* height: 1000px; */
-}
-
 .flex-container {
     background-color: #1e1e2f;
+    display: flex;
+    height: 100%;
+    position: relative;
+}
+
+.sider {
+    width: 300px;
+    margin-top: 60px;
+    margin-left: 30px;
+    /* flex: none; */
 }
 
 .content {
-    display: flex;
+    /* flex: 1; */
+    height: 100%;
+    /* display: flex; */
 }
