@@ -1,19 +1,21 @@
 .flex-container {
-    background-color: #1e1e2f;
+    background-color: #272C3A;
     display: flex;
     height: 100%;
-    position: relative;
+    /* position: relative; */
 }
 
 .sider {
     width: 300px;
     margin-top: 60px;
     margin-left: 30px;
-    /* flex: none; */
+    flex: none;
+    /* position: fixed; */
 }
 
 .content {
-    /* flex: 1; */
+    flex: 1;
     height: 100%;
-    /* display: flex; */
+    display: flex;
+    flex-direction: column;
 }
