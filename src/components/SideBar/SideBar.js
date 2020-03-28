@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './SideBar.css';
 import { AiOutlineDashboard, 
     AiOutlineUser, 
@@ -47,24 +47,24 @@ export class SideBar extends Component {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">
+                            <NavLink className="nav-link" to="/Users">
                                 <AiOutlineUser className="icons user"/>
                                 <span>USERS</span>
-                            </a>
+                            </NavLink>
                             
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">
+                            <NavLink className="nav-link" to="/Message">
                                 <AiOutlineMail className="icons message"/>
                                 <span>MESSAGE</span>
-                            </a>
+                            </NavLink>
                             
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">
+                            <NavLink className="nav-link" to="/Notebook">
                                 <AiOutlineBook className="icons notebook"/>
                                 <span>NOTEBOOK</span>
-                            </a>
+                            </NavLink>
                             
                         </li>
 
@@ -79,18 +79,18 @@ export class SideBar extends Component {
                             {/* Dropdown Menu */}
                             {this.state.toggleon ? (
                                 <div className="dropdownmenu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a className="nav-link dropdownitem" href="#">
+                                    <NavLink className="nav-link dropdownitem" to="/Dashboard/Linechart">
                                         <AiOutlineLineChart className="linechart-icon"/>
                                         <span>LineChart</span>
-                                    </a>
-                                    <a className="nav-link dropdownitem" href="#">
+                                    </NavLink>
+                                    <NavLink className="nav-link dropdownitem" to="/Dashboard/Barchart">
                                         <AiOutlineBarChart className="barchart-icon"/>
                                         <span>BarChart</span>
-                                    </a>
-                                    <a className="nav-link dropdownitem" href="#">
+                                    </NavLink>
+                                    <NavLink className="nav-link dropdownitem" to="/Dashboard/Piechart">
                                         <AiOutlinePieChart className="piechart-icon"/>
                                         <span>PieChart</span>
-                                    </a>
+                                    </NavLink>
                                     
                                 </div>
                             ) : (null)}

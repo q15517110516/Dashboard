@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import SideBar from './components/SideBar/SideBar';
-import './main.css';
+import './Main.css';
 import data from './data';
 import PerformanceSheet from './views/PerformanceSheet/PerformanceSheet';
 import Age from './views/Age/Age';
