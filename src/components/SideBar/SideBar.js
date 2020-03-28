@@ -41,10 +41,10 @@ export class SideBar extends Component {
                     <ul className="nav flex-column">
                         <li className="nav-item">
                             
-                            <a className="nav-link" href="#">
+                            <NavLink className="nav-link" to="/Home">
                                 <AiOutlineHome className="icons home"/>
                                 <span>HOME</span>                         
-                            </a>
+                            </NavLink>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">
