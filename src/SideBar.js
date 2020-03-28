@@ -6,7 +6,9 @@ import { AiOutlineDashboard,
     AiOutlineHome, 
     AiOutlineBarChart,
     AiOutlineLineChart,
-    AiOutlinePieChart } from 'react-icons/ai';
+    AiOutlinePieChart,
+    AiOutlineBook,
+    AiOutlineMail} from 'react-icons/ai';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import { PropTypes } from 'prop-types';
 // import PerfectScrollbar from 'perfect-scrollbar';
@@ -48,6 +50,20 @@ export class SideBar extends Component {
                             <a className="nav-link" href="#">
                                 <AiOutlineUser className="icons user"/>
                                 <span>USERS</span>
+                            </a>
+                            
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">
+                                <AiOutlineMail className="icons message"/>
+                                <span>MESSAGE</span>
+                            </a>
+                            
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">
+                                <AiOutlineBook className="icons notebook"/>
+                                <span>NOTEBOOK</span>
                             </a>
                             
                         </li>
