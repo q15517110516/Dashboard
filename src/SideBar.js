@@ -13,12 +13,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import { Nav, NavLink as ReactstrapNavLink } from 'reactstrap';
 
 export class SideBar extends Component {
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
+        this.state = {
+            toggleon: false,
+        }
+        this.toggleon = this.toggleon.bind(this);
+        
+        
+    }
+
+    toggleon(event){
+        event.preventDefault();
+        this.setState({
+            toggleon: !this.state.toggleon,
+        })
     }
     
 
     render() {
+        
         return (
             <div className="sidebar">
                 <nav className="navbar">
@@ -40,27 +54,30 @@ export class SideBar extends Component {
 
                         {/* Dropdown */}
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a className="nav-link" href="#" onClick={this.toggleon} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <AiOutlineDashboard className="icons dasnboard"/>
                                 <span>DASHBOARD</span>
                             </a>
+
                             
                             {/* Dropdown Menu */}
-                            <div className="dropdown menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a className="nav-link dropdownitem" href="#">
-                                    <AiOutlineLineChart className="linechart-icon"/>
-                                    <span>LineChart</span>
-                                </a>
-                                <a className="nav-link dropdownitem" href="#">
-                                    <AiOutlineBarChart className="barchart-icon"/>
-                                    <span>BarChart</span>
-                                </a>
-                                <a className="nav-link dropdownitem" href="#">
-                                    <AiOutlinePieChart className="piechart-icon"/>
-                                    <span>PieChart</span>
-                                </a>
-                                
-                            </div>
+                            {this.state.toggleon ? (
+                                <div className="dropdownmenu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a className="nav-link dropdownitem" href="#">
+                                        <AiOutlineLineChart className="linechart-icon"/>
+                                        <span>LineChart</span>
+                                    </a>
+                                    <a className="nav-link dropdownitem" href="#">
+                                        <AiOutlineBarChart className="barchart-icon"/>
+                                        <span>BarChart</span>
+                                    </a>
+                                    <a className="nav-link dropdownitem" href="#">
+                                        <AiOutlinePieChart className="piechart-icon"/>
+                                        <span>PieChart</span>
+                                    </a>
+                                    
+                                </div>
+                            ) : (null)}
                         </li>
                     </ul>
                 </nav>
