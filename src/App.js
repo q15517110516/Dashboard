@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SideBar from './SideBar';
+import SideBar from './components/SideBar/SideBar';
 import './App.css';
 import data from './data';
 import PerformanceSheet from './views/PerformanceSheet/PerformanceSheet';

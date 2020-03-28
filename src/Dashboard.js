@@ -7,7 +7,7 @@ import PerformanceSheet from './views/PerformanceSheet/PerformanceSheet';
 import Age from './views/Age/Age';
 import UserList from './views/UserList/UserList';
 import './dashboard.css';
-import SideBar from './SideBar';
+import SideBar from './components/SideBar/SideBar';
 
 
 export class Dashboard extends Component {
