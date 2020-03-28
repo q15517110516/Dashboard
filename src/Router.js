@@ -8,12 +8,12 @@ import Home from './components/Home/Home';
 import Message from './components/Message/Message';
 import Notebook from './components/Notebook/Notebook';
 import Users from './components/Users/Users';
-import SideBar from './components/SideBar/SideBar';
+import Main from './Main';
 
 
 const BasicRouter = () => (
     <BrowserRouter>
-        <SideBar/>
+        <Main/>
         <Switch>
             <Route exact path = "/" component={Home}/>
             <Route exact path = "/Users" component={Users}/>

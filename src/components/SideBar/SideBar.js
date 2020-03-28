@@ -10,9 +10,7 @@ import { AiOutlineDashboard,
     AiOutlineBook,
     AiOutlineMail} from 'react-icons/ai';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { PropTypes } from 'prop-types';
-// import PerfectScrollbar from 'perfect-scrollbar';
-// import { Nav, NavLink as ReactstrapNavLink } from 'reactstrap';
+
 
 export class SideBar extends Component {
     constructor(){
