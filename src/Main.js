@@ -6,7 +6,6 @@ import Users from './components/Users/Users';
 import PerformanceSheet from './views/PerformanceSheet/PerformanceSheet';
 import Age from './views/Age/Age';
 import UserList from './views/UserList/UserList';
-import Router from './Router';
 
 export class Main extends Component {
     constructor(props){
@@ -45,11 +44,11 @@ export class Main extends Component {
             <div>
                 <div className="flex-container">                    
                     <div className="sider">
-                        <SideBar/>
+                        {/*<SideBar/>*/}
                     </div>
                     
                     <div className="content">
-                        <Router />
+                        
                         {/*<div className="content1">
                             <div className="performancesheet">
                                 <PerformanceSheet user={selectedUser}/>

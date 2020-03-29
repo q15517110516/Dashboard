@@ -1,9 +1,26 @@
-.user {
-    background-color: #272C3A;
+.container {
     display: flex;
+    height: 100%;
+    width: 1920px;
+    background-color: #272C3A;
+}
+
+.sider {
+    width: 300px;
+    margin-top: 60px;
+    margin-left: 30px;
+    flex: none;
+    /* position: fixed; */
+}
+
+.user {
+    flex: 1;
+    /* background-color: #272C3A; */
+    /* display: flex; */
     flex-wrap: wrap;
 }
 
 .user>div {
-    border: solid 1px dodgerblue;
+    /* border: solid 1px dodgerblue; */
+    color: white;
 }
