@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import SideBar from './components/SideBar/SideBar';
 import './Main.css';
 import data from './data';
+import Users from './components/Users/Users';
 import PerformanceSheet from './views/PerformanceSheet/PerformanceSheet';
 import Age from './views/Age/Age';
 import UserList from './views/UserList/UserList';
+import Router from './Router';
 
 export class Main extends Component {
     constructor(props){
@@ -41,16 +43,17 @@ export class Main extends Component {
 
         return (
             <div>
-                <div className="flex-container">
-                    
+                <div className="flex-container">                    
                     <div className="sider">
-                        <SideBar/>   
+                        <SideBar/>
                     </div>
                     
                     <div className="content">
-                        <div className="content1">
+                        <Router />
+                        {/*<div className="content1">
                             <div className="performancesheet">
                                 <PerformanceSheet user={selectedUser}/>
+                                <Users/>
                             </div>
                         </div>
 
@@ -62,7 +65,7 @@ export class Main extends Component {
                             <div className="userlist">
                                 <UserList data={filteredData} changeSelectUser={this.changeSelectUser}/>
                             </div>
-                        </div>
+                        </div>*/}
                     </div>
                 </div>
             </div>

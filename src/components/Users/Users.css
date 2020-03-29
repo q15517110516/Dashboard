@@ -1,0 +1,9 @@
+.user {
+    background-color: #272C3A;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user>div {
+    border: solid 1px dodgerblue;
+}
