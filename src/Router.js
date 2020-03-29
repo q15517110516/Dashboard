@@ -11,20 +11,20 @@ import Users from './components/Users/Users';
 import Main from './Main';
 
 
-const BasicRouter = () => (
-    <BrowserRouter>
-        <Main/>
-        <Switch>
-            <Route exact path = "/" component={Home}/>
-            <Route exact path = "/Users" component={Users}/>
-            <Route exact path = "/Message" component={Message}/>
-            <Route exact path = "/Notebook" component={Notebook}/>
-            <Route exact path = "/Dashboard/Linechart" component={Linechart}/>
-            <Route exact path = "/Dashboard/Barchart" component={Barchart}/>
-            <Route exact path = "/Dashboard/Piechart" component={Piechart}/>
-        </Switch>
-    </BrowserRouter>
-)
+// const BasicRouter = () => (
+//     <BrowserRouter>
+//         <Main/>
+//         <Switch>
+//             <Route exact path = "/" component={Home}/>
+//             <Route exact path = "/Users" component={Users}/>
+//             <Route exact path = "/Message" component={Message}/>
+//             <Route exact path = "/Notebook" component={Notebook}/>
+//             <Route exact path = "/Dashboard/Linechart" component={Linechart}/>
+//             <Route exact path = "/Dashboard/Barchart" component={Barchart}/>
+//             <Route exact path = "/Dashboard/Piechart" component={Piechart}/>
+//         </Switch>
+//     </BrowserRouter>
+// )
 
 export default BasicRouter;
 

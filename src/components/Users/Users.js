@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'antd';
 import SideBar from '../SideBar/SideBar';
-import './Users.css';
+// import './Users.css';
 
 export class Users extends Component {
     constructor(){
@@ -21,9 +21,6 @@ export class Users extends Component {
         return (
             <div className="container">
                 
-                    <div className="sider">
-                        <SideBar/>
-                    </div>
 
                     <div className="user">
                         <div>

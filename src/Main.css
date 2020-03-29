@@ -1,25 +1,22 @@
 .flex-container {
     background-color: #272C3A;
-    /* display: flex; */
+    display: flex;
     height: 100%;
-    /* position: relative; */
+    position: relative;
 }
 
-
-/* .sider {
+.sider {
     width: 300px;
     margin-top: 60px;
     margin-left: 30px;
     flex: none;
-    /* position: fixed; */
-
-
-/* } */
+    position: fixed;
+}
 
 .content {
-    /* flex: 1;
+    flex: 1;
     height: 100%;
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    width: 500px; */
+    width: 500px;
 }

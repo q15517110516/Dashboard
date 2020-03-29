@@ -44,7 +44,7 @@ export class Main extends Component {
             <div>
                 <div className="flex-container">                    
                     <div className="sider">
-                        {/*<SideBar/>*/}
+                        <SideBar/>
                     </div>
                     
                     <div className="content">
