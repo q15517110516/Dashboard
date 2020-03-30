@@ -1,26 +1,32 @@
-.container {
+/* Users component */
+
+.userpro {
     display: flex;
-    height: 100%;
-    width: 2000px;
-    background-color: #272C3A;
-}
-
-.sider {
-    width: 300px;
-    margin-top: 60px;
-    margin-left: 30px;
-    flex: none;
-    position: fixed;
-}
-
-.user {
-    flex: 1;
-    background-color: #272C3A;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.user>div {
-    border: solid 1px dodgerblue;
+    flex-direction: column;
     color: white;
+    font-family: sans-serif;
+    font-size: 27px;
+    padding-left: 30px;
+    /* padding-right: 30px; */
+}
+
+.title {
+    padding: 25px 0 20px 0;
+}
+
+.users {
+    display: flex;
+}
+
+.users>div {
+    border: solid 1px dodgerblue;
+    border-radius: 5px;
+    margin: 15px;
+    height: 150px;
+    width: 125px;
+}
+
+.userbox {
+    display: flex;
+    flex-direction: column;
 }

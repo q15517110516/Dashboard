@@ -37,30 +37,34 @@ export class SideBar extends Component {
             <div className="sidebar">
                 <nav className="navbar">
                     <ul className="nav flex-column">
+                        {/* Home */}
                         <li className="nav-item">
-                            
                             <NavLink className="nav-link" to="/Home">
-                                <AiOutlineHome className="icons home"/>
+                                <AiOutlineHome className="icons"/>
                                 <span>HOME</span>                         
                             </NavLink>
                         </li>
+
+                        {/* Users */}
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/Users">
-                                <AiOutlineUser className="icons user"/>
+                                <AiOutlineUser className="icons"/>
                                 <span>USERS</span>
                             </NavLink>
-                            
                         </li>
+
+                        {/* Message */}
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/Message">
-                                <AiOutlineMail className="icons message"/>
+                                <AiOutlineMail className="icons"/>
                                 <span>MESSAGE</span>
-                            </NavLink>
-                            
+                            </NavLink>                            
                         </li>
+
+                        {/* Notebook */}
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/Notebook">
-                                <AiOutlineBook className="icons notebook"/>
+                                <AiOutlineBook className="icons"/>
                                 <span>NOTEBOOK</span>
                             </NavLink>
                             
@@ -68,8 +72,10 @@ export class SideBar extends Component {
 
                         {/* Dropdown */}
                         <li className="nav-item dropdown">
+
+                            {/* Dashboard */}
                             <a className="nav-link" href="#" onClick={this.toggleon} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <AiOutlineDashboard className="icons dasnboard"/>
+                                <AiOutlineDashboard className="icons"/>
                                 <span>DASHBOARD</span>
                             </a>
 
@@ -77,14 +83,20 @@ export class SideBar extends Component {
                             {/* Dropdown Menu */}
                             {this.state.toggleon ? (
                                 <div className="dropdownmenu" aria-labelledby="navbarDropdownMenuLink">
+                                    
+                                    {/* LineChart */}
                                     <NavLink className="nav-link dropdownitem" to="/Dashboard/Linechart">
                                         <AiOutlineLineChart className="linechart-icon"/>
                                         <span>LineChart</span>
                                     </NavLink>
+
+                                    {/* BarChart */}
                                     <NavLink className="nav-link dropdownitem" to="/Dashboard/Barchart">
                                         <AiOutlineBarChart className="barchart-icon"/>
                                         <span>BarChart</span>
                                     </NavLink>
+
+                                    {/* PieChart */}
                                     <NavLink className="nav-link dropdownitem" to="/Dashboard/Piechart">
                                         <AiOutlinePieChart className="piechart-icon"/>
                                         <span>PieChart</span>
