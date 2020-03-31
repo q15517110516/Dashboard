@@ -9,9 +9,11 @@ import Notebook from './components/Notebook/Notebook';
 import Users from './components/Users/Users';
 import SideBar from './components/SideBar/SideBar';
 import './App.css';
+// import data from './data';
 
 
 class App extends Component {
+    
     render() {
         return (
             <div className="flex-container">

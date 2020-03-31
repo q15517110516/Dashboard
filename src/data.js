@@ -1,5 +1,6 @@
 const data = [
     {
+        'code': 1,
         'name': 'Iron Man',
         'gender': 'Male',
         'age': 33,
@@ -25,6 +26,7 @@ const data = [
         ]
     },
     {
+        'code': 2,
         'name': 'Spider Man',
         'gender': 'Male',
         'age': 34,
@@ -50,6 +52,7 @@ const data = [
         ]
     },
     {
+        'code': 3,
         'name': 'Black Widow',
         'gender': 'Female',
         'age': 35,
@@ -75,6 +78,7 @@ const data = [
         ]
     },
     {
+        'code': 4,
         'name': 'Thor',
         'gender': 'Male',
         'age': 45,
@@ -100,6 +104,7 @@ const data = [
         ]
     },
     {
+        'code': 5,
         'name': 'Captain America',
         'gender': 'Male',
         'age': 40,
@@ -125,6 +130,7 @@ const data = [
         ]
     },
     {
+        'code': 6,
         'name': 'Deadpool',
         'gender': 'Male',
         'age': 38,
@@ -150,6 +156,7 @@ const data = [
         ]
     },
     {
+        'code': 7,
         'name': 'Doctor Strange',
         'gender': 'Male',
         'age': 43,
@@ -175,6 +182,7 @@ const data = [
         ]
     },
     {
+        'code': 8,
         'name': 'Captain Marvel',
         'gender': 'Female',
         'age': 37,
@@ -200,6 +208,7 @@ const data = [
         ]
     },
     {
+        'code': 9,
         'name': 'Groot',
         'gender': 'Unknown',
         'age': 20,
@@ -225,6 +234,7 @@ const data = [
         ]
     },
     {
+        'code': 10,
         'name': 'Rocket',
         'gender': 'Unknown',
         'age': 23,

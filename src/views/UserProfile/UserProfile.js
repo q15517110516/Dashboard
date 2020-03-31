@@ -21,6 +21,7 @@ export class UserProfile extends Component {
     render() {
 
         let { user } = this.props;
+        
         if (user == null){
             user = {
                 name: 'null',
@@ -34,6 +35,7 @@ export class UserProfile extends Component {
                 <div className="profile">
                     <div className="userphoto">
                         <img className="photo" src={user.img} aria-hidden alt="userphoto" onClick={() => this.showModal(true)}/>
+                        
                         <Modal className="modal"
                             title="Personal Information"
                             footer={[
