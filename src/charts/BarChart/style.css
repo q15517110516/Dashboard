@@ -1,3 +1,18 @@
 .bar {
-    fill: steelblue;
+    stroke: #1F8EF1;
+    stroke-width: 4;
+}
+
+.tooltip-bar {
+    position: absolute;
+    text-align: center;
+    z-index: 10;
+    width: 100px;
+    height: auto;
+    padding: 2px;
+    font: 18px sans-serif;
+    background: white;
+    border: 0px;
+    border-radius: 5px;
+    pointer-events: none;
 }

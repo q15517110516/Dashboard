@@ -4,15 +4,41 @@ import data from '../../data';
 
 const draw = (props) => {
     let dataset = [];
-    d3.select('.vis-barchart > *').remove();
+    d3.select('.barchart > *').remove();
     const margin = {top: 20, right: 20, bottom: 30, left: 40};
     const width = props.width - margin.left - margin.right;
     const height = props.height - margin.top - margin.bottom;
-    let svg = d3.select('.vis-barchart').append('svg')
+    let svg = d3.select('.barchart').append('svg')
                 .attr('width', width + margin.left + margin.right)
                 .attr('height', height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    // Set tooltip to show the data
+    let tooltip = d3.select("body")
+                    .append("div")
+                    .attr("class", "tooltip-bar")
+                    .style("opacity", 0.5);
+
+    // Set color gradient
+    var linearGradient = svg.append("defs")
+        .append("linearGradient")
+        .attr("id", "linear-gradient")
+        .attr("x1", "0%")
+        .attr("y1", "100%")
+        .attr("x2", "0%")
+        .attr("y2", "0%");
+        
+    linearGradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#1F8EF1")
+        .attr("stop-opacity", 0);
+        
+    linearGradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "#1F8EF1")
+        .attr("stop-opacity", 0.4);
+
 
     //format the data
     data.forEach(function(d){
@@ -33,7 +59,35 @@ const draw = (props) => {
         totalPerMonth.push(totalCount);        
     }
 
-    //Scle the range of the data in the domains
+    // Add mouseover events 
+    function handleMouseOver(d){
+        
+        d3.select(this)
+            .attr("class", "mouseover")
+            .style("fill", "url(#linear-gradient)")
+            .style("stroke", "#1F8EF1")
+            .style("stroke-width", 4);
+            
+        tooltip.transition()
+            .duration(200)
+            .style("opacity", 1);        
+        tooltip.html(d.name + "<br />" + d.total)
+            .style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY) + "px");
+    }
+
+    // Add mouseout events
+    function handleMouseOut(d){
+        d3.select(this)
+            .attr("class", "mouseout")
+            .style("fill", "url(#linear-gradient)");
+        tooltip.transition()
+                .duration(500)
+                .style("opacity", 0)
+                
+    }
+
+    //Scale the range of the data in the domains
     let x = d3.scaleBand()
             .range([0, width])
             .padding(0.1);
@@ -47,22 +101,36 @@ const draw = (props) => {
         return d.total;
     })])
 
+    
 
-    //append the rectangles for the bar chart
+    //Append the rectangles for the bar chart
     svg.selectAll(".bar")
         .data(totalPerMonth)
         .enter().append("rect")
         .attr("class", "bar")
+        .style("fill", "url(#linear-gradient)")
         .attr("x", function(d){
-            return x(d.name);
+            return x(d.name) + (x.bandwidth())/4;
         })
-        .attr("width", x.bandwidth())
+        .attr("width", (x.bandwidth())/2)
+        .attr("y", function(d){
+            return height;
+        })
+        .attr("height", 0)
+        .on("mouseover", handleMouseOver)
+        .on("mouseout", handleMouseOut)
+        .transition()
+        .duration(1000)
+        .delay(function(d, i){
+            return i*50;
+        })
         .attr("y", function(d){
             return y(d.total);
         })
         .attr("height", function(d){
             return height - y(d.total);
         });
+
     
 
     //add the x Axis
@@ -74,6 +142,9 @@ const draw = (props) => {
     svg.append("g")
         .call(d3.axisLeft(y));
             
+
+
+
 }
 
 export default draw;

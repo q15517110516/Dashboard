@@ -46,7 +46,7 @@ const draw = (props) => {
             
         tooltip.transition()
             .duration(200)
-            .style("opacity", 0.9);        
+            .style("opacity", 1);        
         tooltip.html(formatTime(d.date) + "<br />" + d.count)
             .style("left", (d3.event.pageX) + "px")
             .style("top", (d3.event.pageY) + "px");
