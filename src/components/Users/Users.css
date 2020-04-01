@@ -7,7 +7,6 @@
     font-family: sans-serif;
     font-size: 27px;
     padding-left: 30px;
-    /* height: 850px; */
 }
 
 .title {
@@ -17,7 +16,6 @@
 .users {
     display: flex;
     flex-wrap: wrap;
-    /* flex-direction: column; */
 }
 
 .userbox {

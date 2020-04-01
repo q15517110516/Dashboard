@@ -23,7 +23,7 @@ export class Users extends Component {
 
     render() {
 
-        let { user} = this.props;
+        let { user } = this.props;
         // const { visible } = this.state;
 
         if(user == null){
@@ -57,7 +57,7 @@ export class Users extends Component {
                             <div className="userphoto">
 
                                 {/* Image */}
-                                <img className="photo" src={user.img} aria-hidden alt="userphoto" onClick={() => this.showModal(user)}/>
+                                <img className="photo" src={user.img} aria-hidden alt="userphoto" onClick={() => this.showModal()}/>
                                 {/* Click to display users info */}
                                 
                                 {/*<Modal visible={visible} user={this.changeSelect} />*/}
