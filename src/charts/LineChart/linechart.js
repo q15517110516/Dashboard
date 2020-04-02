@@ -62,6 +62,11 @@ const draw = (props) => {
                 
     }
 
+    // Append y grid lines
+    function x_gridline(){
+        return d3.axisBottom(xScale).ticks(10);
+    }
+
     //Add X axis --> it is a date format
     let xScale = d3.scaleTime()
             .domain(d3.extent(data, function(d){
@@ -75,6 +80,7 @@ const draw = (props) => {
         .style("font", "13px times")
         .style("font-family", "sans-serif");
 
+
     //Add Y axis
     var yScale = d3.scaleLinear()
             .domain([0, 10])
@@ -85,9 +91,18 @@ const draw = (props) => {
         .attr("stroke-width", 0)
         .style("font", "14px times");
 
-    
+    // Add y grid lines
+    svg.append("g")
+        .attr("class", "grid")
+        .attr("transform", "translate(0," + height + ")")
+        .call(x_gridline()
+            .tickSize(-height)
+            .tickFormat("")
+        )
+            
+
     //Add the line
-    svg.append("path")
+    var path = svg.append("path")
         .datum(data)
         .attr("class", "line")
         .attr("d", d3.line()
@@ -100,7 +115,15 @@ const draw = (props) => {
             .curve(d3.curveMonotoneX)
             );
         
+    var totalLength = path.node().getTotalLength();
+    path.attr("stroke-dasharray", totalLength + " " + totalLength)
+        .attr("stroke-dashoffset", totalLength)
+        .transition()
+        .duration(2000)
+        .ease(d3.easeLinear)
+        .attr("stroke-dashoffset", 0);
 
+        
     // Appends a circle for each datapoint
     svg.selectAll(".dot")
         .data(data)

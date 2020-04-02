@@ -123,7 +123,6 @@ const draw = (props) => {
     // add the Y gridlines
     svg.append("g")			
     .attr("class", "grid")
-    
     .call(y_gridlines()
         .tickSize(-width)
         .tickFormat("")
