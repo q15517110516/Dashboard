@@ -14,6 +14,26 @@ const draw = (props) => {
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+
+    //format the data
+    data.forEach(function(d){
+        dataset.push(d.activities);
+    });
+
+    //get the total amount
+    var totalPerMonth = [];
+    for(let i = 0; i < dataset.length; i++){
+        var total = 0;
+        var totalCount = {};
+        for(let j = 0; j < dataset[i].length; j++){
+            total += (dataset[i][j]).count;
+            
+        }
+        totalCount.name = data[i].name;
+        totalCount.total = total;
+        totalPerMonth.push(totalCount);        
+    }
+
     // Set tooltip to show the data
     let tooltip = d3.select("body")
                     .append("div")
@@ -39,29 +59,20 @@ const draw = (props) => {
         .attr("stop-color", "#1F8EF1")
         .attr("stop-opacity", 0.4);
 
-
-    //format the data
-    data.forEach(function(d){
-        dataset.push(d.activities);
-    });
-
-    //get the total amount
-    var totalPerMonth = [];
-    for(let i = 0; i < dataset.length; i++){
-        var total = 0;
-        var totalCount = {};
-        for(let j = 0; j < dataset[i].length; j++){
-            total += (dataset[i][j]).count;
-            
-        }
-        totalCount.name = data[i].name;
-        totalCount.total = total;
-        totalPerMonth.push(totalCount);        
+    // Add grid lines in x Axis function
+    function x_gridlines(){
+        return d3.axisBottom(x)
+                    .ticks(5);
     }
 
+    // Add grid lines in y Axis function
+    function y_gridlines(){
+        return d3.axisLeft(y).ticks(5);
+    }
+    
+
     // Add mouseover events 
-    function handleMouseOver(d){
-        
+    function handleMouseOver(d){       
         d3.select(this)
             .attr("class", "mouseover")
             .style("fill", "url(#linear-gradient)")
@@ -70,8 +81,8 @@ const draw = (props) => {
             
         tooltip.transition()
             .duration(200)
-            .style("opacity", 1);        
-        tooltip.html(d.name + "<br />" + d.total)
+            .style("opacity", 0.8);        
+        tooltip.html(d.name + "<br />" + "Total Performances" + ":" + " " + d.total)
             .style("left", (d3.event.pageX) + "px")
             .style("top", (d3.event.pageY) + "px");
     }
@@ -101,8 +112,26 @@ const draw = (props) => {
         return d.total;
     })])
 
-    
+    // add the X gridlines
+    svg.append("g")			
+    .attr("class", "grid")
+    .attr("transform", "translate(0," + height + ")")
+    .call(x_gridlines()
+        .tickSize(-height)
+        .tickFormat("")
+        
+    );
 
+    // add the Y gridlines
+    svg.append("g")			
+    .attr("class", "grid")
+    .call(y_gridlines()
+        .tickSize(-width)
+        .tickFormat("")
+        
+    )
+    .style("stroke", "#263350");
+    
     //Append the rectangles for the bar chart
     svg.selectAll(".bar")
         .data(totalPerMonth)
@@ -136,13 +165,18 @@ const draw = (props) => {
     //add the x Axis
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x))
+        .attr("stroke-width", 0)
+        .style("font", "14px times")
+        .style("font-family", "sans-serif");
 
     //add the y Axis
     svg.append("g")
-        .call(d3.axisLeft(y));
+        .call(d3.axisLeft(y))
+        .attr("stroke-width", 0)
+        .style("font", "14px times");
             
-
+    
 
 
 }

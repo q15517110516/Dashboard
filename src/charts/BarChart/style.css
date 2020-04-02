@@ -1,18 +1,26 @@
 .bar {
     stroke: #1F8EF1;
     stroke-width: 4;
+    font: 18px sans-serif;
 }
 
 .tooltip-bar {
     position: absolute;
-    text-align: center;
+    text-align: left;
     z-index: 10;
-    width: 100px;
+    width: 220px;
     height: auto;
-    padding: 2px;
+    padding: 12px;
     font: 18px sans-serif;
-    background: white;
-    border: 0px;
+    color: white;
+    background-color: #212529;
     border-radius: 5px;
     pointer-events: none;
+}
+
+.grid {
+    color: #263350;
+    stroke-width: 3;
+    stroke-opacity: 0.5;
+    shape-rendering: crispEdges;
 }

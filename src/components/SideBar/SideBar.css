@@ -1,5 +1,5 @@
 .sidebar {
-    height: 850px;
+    height: 90%;
     width: 250px;
     border-radius: 10px;
     background-color: #1E1E2F;
@@ -36,15 +36,15 @@
 }
 
 .dropdownitem {
-    height: 40px;
-    margin-left: 10px;
+    height: 50px;
+    margin-left: 25px;
 }
 
 .barchart-icon,
 .linechart-icon,
 .piechart-icon {
     color: white;
-    margin-right: 15px;
+    margin-right: 10px;
     vertical-align: middle;
     text-align: center;
     width: 35px;
