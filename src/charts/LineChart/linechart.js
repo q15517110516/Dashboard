@@ -12,15 +12,8 @@ const draw = (props) => {
     let margin = {top: 20, right: 20, bottom: 30, left: 40};
     const width = props.width - margin.left - margin.right;
     const height = props.height - margin.top - margin.bottom;
-    const radius = 4;
+    const radius = 5;
 
-    // Set tooltip to show the data
-    let tooltip = d3.select("body")
-                    .append("div")
-                    .attr("class", "tooltip")
-                    .style("opacity", 0);
-                    
-    
     
     let svg = d3.select('.linechart')
                 .append('svg')
@@ -30,12 +23,18 @@ const draw = (props) => {
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // Change time format
-    var formatTime = d3.timeFormat("%e %B");
+    var formatTime = d3.timeFormat("%B %e");
     data.forEach(function(d){
         
         d.date = d3.timeParse("%Y-%m-%d")(d.date);
         d.count = +d.count;
     });
+
+    // Set tooltip to show the data
+    let tooltip = d3.select("body")
+                    .append("div")
+                    .attr("class", "tooltip-line");
+                    
     
     // Add mouseover events 
     function handleMouseOver(d){
@@ -46,7 +45,7 @@ const draw = (props) => {
             
         tooltip.transition()
             .duration(200)
-            .style("opacity", 1);        
+            .style("opacity", 0.8);        
         tooltip.html(formatTime(d.date) + "<br />" + d.count)
             .style("left", (d3.event.pageX) + "px")
             .style("top", (d3.event.pageY) + "px");
@@ -71,16 +70,20 @@ const draw = (props) => {
             .range([0, width]);
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(xScale));
+        .call(d3.axisBottom(xScale))
+        .attr("stroke-width", 0)
+        .style("font", "13px times")
+        .style("font-family", "sans-serif");
 
     //Add Y axis
     var yScale = d3.scaleLinear()
-            .domain([0, d3.max(data, function(d){
-                return +d.count;
-            })])
+            .domain([0, 10])
             .range([height,0]);
     svg.append("g")
-        .call(d3.axisLeft(yScale).ticks(5));
+        .call(d3.axisLeft(yScale)
+        .ticks(5))
+        .attr("stroke-width", 0)
+        .style("font", "14px times");
 
     
     //Add the line

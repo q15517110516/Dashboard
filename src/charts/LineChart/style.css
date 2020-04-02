@@ -1,24 +1,25 @@
 .dot,
 .mouseover,
 .mouseout {
-    fill: #BA54F5;
+    fill: #1F8EF1;
 }
 
 .line {
     fill: none;
-    stroke: #BA54F5;
-    stroke-width: 3;
+    stroke: #1F8EF1;
+    stroke-width: 4;
 }
 
-.tooltip {
+.tooltip-line {
     position: absolute;
-    text-align: center;
-    width: 80px;
+    text-align: left;
+    z-index: 10;
+    width: 100px;
     height: auto;
-    padding: 2px;
-    font: 15px sans-serif;
-    background: #fff;
-    border: 0px;
+    padding: 10px;
+    font: 18px sans-serif;
+    background-color: #212529;
+    color: white;
     border-radius: 5px;
     pointer-events: none;
 }
