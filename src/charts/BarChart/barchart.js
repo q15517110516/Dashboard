@@ -118,19 +118,18 @@ const draw = (props) => {
     .attr("transform", "translate(0," + height + ")")
     .call(x_gridlines()
         .tickSize(-height)
-        .tickFormat("")
-        
+        .tickFormat("")      
     );
 
     // add the Y gridlines
     svg.append("g")			
     .attr("class", "grid")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     .call(y_gridlines()
         .tickSize(-width)
         .tickFormat("")
         
     )
-    .style("stroke", "#263350");
     
     //Append the rectangles for the bar chart
     svg.selectAll(".bar")
