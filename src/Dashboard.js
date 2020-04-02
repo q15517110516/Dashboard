@@ -5,7 +5,7 @@ import Gender from './views/Gender/Gender';
 import Filter from './views/Filter/Filter';
 import PerformanceSheet from './views/PerformanceSheet/PerformanceSheet';
 import Age from './views/Age/Age';
-import UserList from './views/UserList/UserList';
+import UserList from './components/DashBoard/LineChart/UserList';
 import './dashboard.css';
 import SideBar from './components/SideBar/SideBar';
 

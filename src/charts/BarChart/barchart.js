@@ -37,8 +37,7 @@ const draw = (props) => {
     // Set tooltip to show the data
     let tooltip = d3.select("body")
                     .append("div")
-                    .attr("class", "tooltip-bar")
-                    .style("opacity", 0.5);
+                    .attr("class", "tooltip-bar");
 
     // Set color gradient
     var linearGradient = svg.append("defs")
@@ -124,7 +123,7 @@ const draw = (props) => {
     // add the Y gridlines
     svg.append("g")			
     .attr("class", "grid")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+    
     .call(y_gridlines()
         .tickSize(-width)
         .tickFormat("")

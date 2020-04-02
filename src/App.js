@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Barchart from './components/DashBoard/BarChart/Barchart';
-import Linechart from './components/DashBoard/LineChart/LineChart';
+import Linechart from './components/DashBoard/LineChart/Linechart';
 import Piechart from './components/DashBoard/PieChart/Piechart';
 import Home from './components/Home/Home';
 import Message from './components/Message/Message';
