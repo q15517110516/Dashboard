@@ -4,6 +4,10 @@
     color: white;
     font-family: sans-serif;
     padding-left: 30px;
+    padding-bottom: 30px;
+    background-color: #1E1E2F;
+    border-radius: 10px;
+    height: 100%;
 }
 
 .title {

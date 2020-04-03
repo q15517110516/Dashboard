@@ -11,17 +11,20 @@ export class UserList extends Component {
     render() {
         const {data} = this.props;
         return (
-            <div>
+            <div className="user-list">
                 <div className="title">User List</div>
-                <List className="list"
+                <div className="list">
+                <List
+                size="large"
                 dataSource={data}
                 renderItem={user => 
-                    <List.Item className="user" onClick={() => this.selectUser(user)}>
+                    <List.Item className="user"  onClick={() => this.selectUser(user)}>
                         <div>
                             { `${user.name}`}
                         </div>
                     </List.Item>}
-                />       
+                />  
+                </div>     
             </div>
         )
     }

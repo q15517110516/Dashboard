@@ -3,6 +3,9 @@
     flex-direction: column;
     color: white;
     font-family: sans-serif;
+    background-color: #1E1E2F;
+    border-radius: 10px;
+    height: 100%;
     font-size: 27px;
     padding-left: 30px;
 }
