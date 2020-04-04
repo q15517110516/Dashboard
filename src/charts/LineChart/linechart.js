@@ -8,14 +8,14 @@ const draw = (props) => {
         data = _.cloneDeep(props.data.activities);
     }
 
-    d3.select('.linechart > *').remove();
+    d3.select('.vis-linechart > *').remove();
     let margin = {top: 20, right: 20, bottom: 30, left: 40};
     const width = props.width - margin.left - margin.right;
     const height = props.height - margin.top - margin.bottom;
     const radius = 5;
 
     
-    let svg = d3.select('.linechart')
+    let svg = d3.select('.vis-linechart')
                 .append('svg')
                 .attr('width', width + margin.left + margin.right)
                 .attr('height', height + margin.top + margin.bottom)

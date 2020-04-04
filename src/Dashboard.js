@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import data from './data';
 import UserProfile from './views/UserProfile/UserProfile';
 import Gender from './views/Gender/Gender';
-import Filter from './views/Filter/Filter';
+import Filter from './components/DashBoard/PieChart/Filter';
 import PerformanceSheet from './views/PerformanceSheet/PerformanceSheet';
 import Age from './views/Age/Age';
 import UserList from './components/DashBoard/LineChart/UserList';

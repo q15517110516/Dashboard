@@ -15,7 +15,7 @@ class App extends Component {
     
     render() {
         return (
-            <div className="flex-container">
+            <div className="main">
                 <div className="sider">
                     <SideBar/> 
                 </div>

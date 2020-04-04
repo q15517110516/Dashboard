@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'antd';
-import './Users.css';
+import './MyUser.css';
 // import Modal from './Modal';
 // import data from '../../data';
 
-export class Users extends Component {
+export class MyUsers extends Component {
     
     constructor(){
         super();
@@ -41,12 +41,9 @@ export class Users extends Component {
             <div>
                 {/* User Profile */}
                 <div className="userpro">
-                    {/* Title */}
                     
-                    <div className="title">
-                        User Profile
-                    </div>
-
+                    {/* Title */}
+                    <div className="title">User Profile</div>
                     
                     {/* User List */} 
                     <div className="users">
@@ -101,4 +98,4 @@ export class Users extends Component {
     }
 }
 
-export default Users
+export default MyUsers

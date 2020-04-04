@@ -30,11 +30,11 @@ export class Users extends Component {
 
         return (
             <div className="dash-Linechart">
-                <div>
-                    <MyLinechart className="my-linechart" user={selectUser}/>
+                <div className="my-linechart">
+                    <MyLinechart  user={selectUser}/>
                 </div>
-                <div>
-                    <UserList className="userlist" data={filteredData} changeSelectUser={this.changeSelectUser}/>
+                <div className="userlist">
+                    <UserList  data={filteredData} changeSelectUser={this.changeSelectUser}/>
                 </div>
                 
             </div>

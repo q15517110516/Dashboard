@@ -8,8 +8,7 @@
     border-radius: 10px;
     height: 100%;
     max-width: 100%;
-    padding-left: 30px;
-    padding-bottom: 50px;
+    padding: 0 30px 50px 30px;
 }
 
 .title {
@@ -18,5 +17,4 @@
 
 .barchart {
     margin: 30px;
-    /* text-align: center; */
 }

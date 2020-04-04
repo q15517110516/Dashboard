@@ -1,12 +1,7 @@
 .user-list {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
-    color: white;
-    font-family: sans-serif;
-    padding-left: 30px;
-    background-color: #1E1E2F;
-    border-radius: 10px;
+    padding: 0 30px 50px 30px;
     height: 100%;
 }
 
@@ -14,10 +9,12 @@
     list-style: none;
 }
 
+
+/* 
 .user:hover {
     background-color: silver;
 }
 
 .user:active {
     background-color: rgb(231, 230, 230);
-}
+} */

@@ -4,11 +4,11 @@ import data from '../../data';
 
 const draw = (props) => {
     let dataset = [];
-    d3.select('.barchart > *').remove();
+    d3.select('.vis-barchart > *').remove();
     const margin = {top: 20, right: 20, bottom: 30, left: 40};
     const width = props.width - margin.left - margin.right;
     const height = props.height - margin.top - margin.bottom;
-    let svg = d3.select('.barchart').append('svg')
+    let svg = d3.select('.vis-barchart').append('svg')
                 .attr('width', width + margin.left + margin.right)
                 .attr('height', height + margin.top + margin.bottom)
                 .append("g")

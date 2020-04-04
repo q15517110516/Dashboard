@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import data from '../../data';
 import MyUser from './MyUser';
+import './Users.css';
 
 
 export class Users extends Component {
@@ -23,7 +24,7 @@ export class Users extends Component {
     render() {
         const { selectedUser } = this.state;
         return (
-            <div>
+            <div className="comp-users">
                 <MyUser
                     user = {selectedUser}
                     changeSelectUser={this.changeSelectUser}                   
