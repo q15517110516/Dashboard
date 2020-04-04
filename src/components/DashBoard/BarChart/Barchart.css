@@ -3,11 +3,13 @@
     flex-direction: column;
     color: white;
     font-family: sans-serif;
+    font-size: 27px;
     background-color: #1E1E2F;
     border-radius: 10px;
     height: 100%;
-    font-size: 27px;
+    max-width: 100%;
     padding-left: 30px;
+    padding-bottom: 50px;
 }
 
 .title {
@@ -15,6 +17,6 @@
 }
 
 .barchart {
-    margin: 30px 50px 0 0;
+    margin: 30px;
     /* text-align: center; */
 }
