@@ -1,6 +1,6 @@
 .dot,
-.mouseover,
-.mouseout {
+.mouseover-line,
+.mouseout-line {
     fill: #1F8EF1;
 }
 
@@ -14,7 +14,7 @@
     position: absolute;
     text-align: left;
     z-index: 10;
-    width: 100px;
+    width: auto;
     height: auto;
     padding: 10px;
     font: 18px sans-serif;

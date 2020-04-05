@@ -73,7 +73,7 @@ const draw = (props) => {
     // Add mouseover events 
     function handleMouseOver(d){       
         d3.select(this)
-            .attr("class", "mouseover")
+            .attr("class", "mouseover-bar")
             .style("fill", "url(#linear-gradient)")
             .style("stroke", "#1F8EF1")
             .style("stroke-width", 4);
@@ -81,7 +81,7 @@ const draw = (props) => {
         tooltip.transition()
             .duration(200)
             .style("opacity", 0.8);        
-        tooltip.html(d.name + "<br />" + "Total Performances" + ":" + " " + d.total)
+        tooltip.html(d.name + "<br />Total Performances: " + d.total)
             .style("left", (d3.event.pageX) + "px")
             .style("top", (d3.event.pageY) + "px");
     }
@@ -89,7 +89,7 @@ const draw = (props) => {
     // Add mouseout events
     function handleMouseOut(d){
         d3.select(this)
-            .attr("class", "mouseout")
+            .attr("class", "mouseout-bar")
             .style("fill", "url(#linear-gradient)");
         tooltip.transition()
                 .duration(200)

@@ -17,6 +17,7 @@ const draw = (props) => {
         {label: 'Female', count: count[1]},
         {label: 'Unknown', count: count[2]}
     ]
+    
 
     d3.select('.vis-piechart > *').remove();
     const margin = {top: 10, right: 20, bottom: 30, left: 40};
@@ -39,6 +40,10 @@ const draw = (props) => {
                 .innerRadius(0)
                 .outerRadius(radius);
 
+    let arc2 = d3.arc()
+                .innerRadius(0)
+                .outerRadius(radius + 10);
+
     let pie = d3.pie()
                 .value(function(d){
                     return d.count;
@@ -53,12 +58,14 @@ const draw = (props) => {
     // Add mouseover events 
     function handleMouseOver(d){       
         d3.select(this)
-            .attr("class", "mouseover")
+            .attr("class", "mouseover-pie")
+            .attr("d", arc2(d));
             
         tooltip.transition()
             .duration(200)
-            .style("opacity", 0.8);        
-        tooltip.html(d.data.label)
+            .style("opacity", 0.8); 
+
+        tooltip.html(d.data.label + ": " + d.data.count)
             .style("left", (d3.event.pageX) + "px")
             .style("top", (d3.event.pageY) + "px");
     }
@@ -66,7 +73,8 @@ const draw = (props) => {
     // Add mouseout events
     function handleMouseOut(d){
         d3.select(this)
-            .attr("class", "mouseout")
+            .attr("class", "mouseout-pie")
+            .attr("d", arc(d))
 
         tooltip.transition()
                 .duration(200)
@@ -83,34 +91,35 @@ const draw = (props) => {
         .attr('fill', function(d){
             return color(d.data.label);
         });
-
+        
     path.on('mouseover', handleMouseOver)
         .on('mouseout', handleMouseOut);
     
 
-    // let legendG = svg.selectAll(".legend")
-    //                 .data(pie(dataset))
-    //                 .enter()
-    //                 .append('g')
-    //                 .attr("transform", function(d, i){
-    //                     return "translate(" + (i * 70 - 100) + "," + 110 + ")";
-    //                 })
-    //                 .attr("class", "legend");
+    let legendG = svg.selectAll(".legend")
+                    .data(pie(dataset))
+                    .enter()
+                    .append('g')
+                    .attr("transform", function(d, i){ 
+                        return "translate(" + (i * 100 - 140) + "," + 300 + ")";
+                    })
+                    .attr("class", "legend");
 
-    // legendG.append("rect")
-    //         .attr("width", 10)
-    //         .attr("height", 10)
-    //         .attr("fill", function(d, i){
-    //             return color(i);
-    //         });
+    legendG.append("rect")
+            .attr("width", 10)
+            .attr("height", 10)
+            .attr("fill", function(d, i){
+                return color(i);
+            });
 
-    // legendG.append("text")
-    //         .text(function(d){
-    //             return d.data.label;
-    //         })
-    //         .style("font-size", 20)
-    //         .attr("y", 10)
-    //         .attr("x", 11);
+    legendG.append("text")
+            .text(function(d){
+                return d.data.label;
+            })
+            .style("font-size", 20)
+            .style("fill", "white")          
+            .attr("y", 10)
+            .attr("x", 18);
         
     }
 

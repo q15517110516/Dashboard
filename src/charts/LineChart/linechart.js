@@ -40,13 +40,13 @@ const draw = (props) => {
     function handleMouseOver(d){
         
         d3.select(this)
-            .attr("class", "mouseover")
+            .attr("class", "mouseover-line")
             .attr("r", radius * 2);
             
         tooltip.transition()
             .duration(200)
             .style("opacity", 0.8);        
-        tooltip.html(formatTime(d.date) + "<br />" + d.count)
+        tooltip.html(formatTime(d.date) + "<br />Performance: " + d.count)
             .style("left", (d3.event.pageX) + "px")
             .style("top", (d3.event.pageY) + "px");
     }
@@ -54,7 +54,7 @@ const draw = (props) => {
     // Add mouseout events
     function handleMouseOut(d){
         d3.select(this)
-            .attr("class", "mouseout")
+            .attr("class", "mouseout-line")
             .attr("r", radius);
         tooltip.transition()
                 .duration(200)
