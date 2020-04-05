@@ -57,7 +57,7 @@ const draw = (props) => {
             .attr("class", "mouseout")
             .attr("r", radius);
         tooltip.transition()
-                .duration(500)
+                .duration(200)
                 .style("opacity", 0)
                 
     }

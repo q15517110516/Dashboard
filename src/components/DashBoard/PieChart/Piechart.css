@@ -1,0 +1,22 @@
+.piechart {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    font-family: sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+.my-piechart {
+    border-radius: 10px;
+    background-color: #1E1E2F;
+    margin-right: 40px;
+    flex: none;
+}
+
+.filter {
+    flex: 1;
+    background-color: #1E1E2F;
+    border-radius: 10px;
+    height: 50%;
+}

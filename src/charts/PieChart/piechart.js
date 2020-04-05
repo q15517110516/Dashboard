@@ -1,4 +1,5 @@
 import * as d3 from 'd3';
+import './style.css';
 
 const draw = (props) => {
     const data = props.data;
@@ -32,7 +33,7 @@ const draw = (props) => {
     let radius = Math.min(width, height) / 2;
 
     let color = d3.scaleOrdinal()
-                .range(['steelblue', 'LightBlue', 'LightSteelBlue']);
+                .range(['#1d8cf8', '#2dce89', '#ff8d72']);
 
     let arc = d3.arc()
                 .innerRadius(0)
@@ -43,8 +44,38 @@ const draw = (props) => {
                     return d.count;
                 })
                 .sort(null);
+
+    // Set tooltip to show the data
+    let tooltip = d3.select("body")
+                    .append("div")
+                    .attr("class", "tooltip-pie");
+
+    // Add mouseover events 
+    function handleMouseOver(d){       
+        d3.select(this)
+            .attr("class", "mouseover")
+            
+        tooltip.transition()
+            .duration(200)
+            .style("opacity", 0.8);        
+        tooltip.html(d.data.label)
+            .style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY) + "px");
+    }
+
+    // Add mouseout events
+    function handleMouseOut(d){
+        d3.select(this)
+            .attr("class", "mouseout")
+
+        tooltip.transition()
+                .duration(200)
+                .style("opacity", 0)
+                
+    }
+
         
-    svg.selectAll('path')
+    let path = svg.selectAll('path')
         .data(pie(dataset))
         .enter()
         .append('path')
@@ -53,29 +84,33 @@ const draw = (props) => {
             return color(d.data.label);
         });
 
-    let legendG = svg.selectAll(".legend")
-                    .data(pie(dataset))
-                    .enter()
-                    .append('g')
-                    .attr("transform", function(d, i){
-                        return "translate(" + (i * 70 - 100) + "," + 110 + ")";
-                    })
-                    .attr("class", "legend");
+    path.on('mouseover', handleMouseOver)
+        .on('mouseout', handleMouseOut);
+    
 
-    legendG.append("rect")
-            .attr("width", 10)
-            .attr("height", 10)
-            .attr("fill", function(d, i){
-                return color(i);
-            });
+    // let legendG = svg.selectAll(".legend")
+    //                 .data(pie(dataset))
+    //                 .enter()
+    //                 .append('g')
+    //                 .attr("transform", function(d, i){
+    //                     return "translate(" + (i * 70 - 100) + "," + 110 + ")";
+    //                 })
+    //                 .attr("class", "legend");
 
-    legendG.append("text")
-            .text(function(d){
-                return d.data.label;
-            })
-            .style("font-size", 12)
-            .attr("y", 10)
-            .attr("x", 11);
+    // legendG.append("rect")
+    //         .attr("width", 10)
+    //         .attr("height", 10)
+    //         .attr("fill", function(d, i){
+    //             return color(i);
+    //         });
+
+    // legendG.append("text")
+    //         .text(function(d){
+    //             return d.data.label;
+    //         })
+    //         .style("font-size", 20)
+    //         .attr("y", 10)
+    //         .attr("x", 11);
         
     }
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Slider, Checkbox, Divider } from 'antd';
 import './Filter.css';
 
+
 const CheckboxGroup = Checkbox.Group;
 
 const plainOptions = ['Male', 'Female', 'Unknown'];
@@ -42,10 +43,10 @@ export class Filter extends Component {
     }
     render() {
         return (
-            <div id="view3" className="pane">
-                <div className="header">Filter</div>
-                <h3>Gender</h3>
-                <div style={{ width: 275, margin: 5 }}>
+            <div className="filter-box">
+                <div className="title">Filter</div>
+                <h4>Gender</h4>
+                <div className="checkbox">
                     <Checkbox
                         indeteriminate = {this.state.indeterminate}
                         onChange = {this.onCheckAllChange}
@@ -55,7 +56,7 @@ export class Filter extends Component {
                     </Checkbox>
                 </div>
                 <br />
-                <div style={{ width: 275, margin: 5 }}>
+                <div className="checkboxGroup">
                     <CheckboxGroup
                         options = {plainOptions}
                         value = {this.state.checkedList}
@@ -63,7 +64,7 @@ export class Filter extends Component {
 
                 </div>
                 <Divider />
-                <h3>Age</h3>
+                <h4>Age</h4>
                 <Slider defaultValue={0} onChange = {this.onChangeSlider} />
             </div>
         )

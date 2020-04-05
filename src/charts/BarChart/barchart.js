@@ -92,7 +92,7 @@ const draw = (props) => {
             .attr("class", "mouseout")
             .style("fill", "url(#linear-gradient)");
         tooltip.transition()
-                .duration(500)
+                .duration(200)
                 .style("opacity", 0)
                 
     }

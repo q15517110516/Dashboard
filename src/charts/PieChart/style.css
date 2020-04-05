@@ -1,0 +1,13 @@
+.tooltip-pie {
+    position: absolute;
+    text-align: left;
+    z-index: 10;
+    width: 100px;
+    height: auto;
+    padding: 12px;
+    font: 18px sans-serif;
+    color: white;
+    background-color: #212529;
+    border-radius: 5px;
+    pointer-events: none;
+}
