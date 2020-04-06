@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ToDoItems.css';
 import { AiOutlineClose } from 'react-icons/ai';
+import FlipMove from 'react-flip-move';
 
 export class ToDoItems extends Component {
     constructor (props) {
@@ -14,8 +15,8 @@ export class ToDoItems extends Component {
     
     createTasks(item){
         return (
-            <div className="item-list" key={item.key}>
-                <li>
+            <div key={item.key}>
+                <li className="item-list">
                 <span>{item.text}</span>
                 <AiOutlineClose className="delete" onClick={() => this.delete(item.key)}/>
                 </li>
@@ -31,7 +32,9 @@ export class ToDoItems extends Component {
         return (
             <div>
                 <ul className="items">
-                    {listItems}
+                    <FlipMove duration={250} easing="ease-out">
+                        {listItems}                
+                    </FlipMove>
                     
                 </ul>
             </div>

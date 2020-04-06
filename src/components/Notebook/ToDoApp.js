@@ -8,14 +8,15 @@ export class ToDoApp extends Component {
         super(props);
         this.state={
             items: [
-                
+                {text: "Your ToDo List", key: 1},
+                {text: "Your ToDo List", key: 2},
+                {text: "Your ToDo List", key: 3},
             ],
         };
         this.addItem = this.addItem.bind(this);
         this.deleteItem = this.deleteItem.bind(this);
         
     }
-
 
     addItem(e){
         if(this.inputElement.value !== ""){
@@ -32,6 +33,7 @@ export class ToDoApp extends Component {
 
             this.inputElement.value = "";
         }
+        console.log(this.state.items);
         e.preventDefault();
     }
 
@@ -54,7 +56,7 @@ export class ToDoApp extends Component {
                         <button type="submit">ADD</button>
                     </form>
                 </div>
-                <ToDoItems entries={this.state.items} delete={this.deleteItem}/>
+                <ToDoItems className="todoitems" entries={this.state.items} delete={this.deleteItem}/>
                 
             </div>
         )

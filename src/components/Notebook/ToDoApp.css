@@ -2,7 +2,8 @@
     padding: 10px;
     font: 16px sans-serif;
     border: 2px solid white;
-    width: 165px;
+    width: 80%;
+    min-width: 305px;
     color: black;
 }
 
@@ -10,14 +11,16 @@
     padding: 10px;
     font: 16px sans-serif;
     margin: 10px;
+    width: 15%;
+    min-width: 65px;
     margin-right: 0px;
-    background-color: #0066FF;
+    background-color: #1F8EF1;
     color: white;
-    border: 2px solid #0066FF;
+    border: 2px solid #1F8EF1;
 }
 
 .todoinput button:hover {
-    background-color: #003399;
-    border: 2px solid #003399;
+    background-color: #0066FF;
+    border: 2px solid #0066FF;
     cursor: pointer;
 }
