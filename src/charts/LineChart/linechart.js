@@ -23,6 +23,10 @@ const draw = (props) => {
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // Change time format
+    var bisectDate = d3.bisector(function(d){
+        console.log(d.date)
+        return d.date
+    }).left;
     var formatTime = d3.timeFormat("%B %e");
     data.forEach(function(d){
         
@@ -36,6 +40,8 @@ const draw = (props) => {
                     .attr("class", "tooltip-line");
                     
     
+    let focus = svg.append("g")
+                    .style("display", "none");
     // Add mouseover events 
     function handleMouseOver(d){
         
@@ -60,6 +66,14 @@ const draw = (props) => {
                 .duration(200)
                 .style("opacity", 0)
                 
+    }
+
+    function handleMouseMove(){
+        var x0 = xScale.invert(d3.mouse(this)[0]),              
+            i = bisectDate(data, x0, 1),                   
+            d0 = data[i - 1],                              
+            d1 = data[i],                                 
+            d = x0 - d0.date > d1.date - x0 ? d1 : d0;
     }
 
     // Append y grid lines
@@ -125,20 +139,35 @@ const draw = (props) => {
 
         
     // Appends a circle for each datapoint
-    svg.selectAll(".dot")
-        .data(data)
-        .enter()
-        .append("circle")
-        .attr("class", 'dot')
-        .attr("cx", function(d){
-            return xScale(d.date);
-        })
-        .attr("cy", function(d){
-            return yScale(d.count);
-        })
-        .attr("r", radius)
-        .on("mouseover", handleMouseOver)
-        .on("mouseout", handleMouseOut);
+    // svg.selectAll(".dot")
+    //     .data(data)
+    //     .enter()
+    //     .append("circle")
+    //     .attr("class", 'dot')
+    //     .attr("cx", function(d){
+    //         return xScale(d.date);
+    //     })
+    //     .attr("cy", function(d){
+    //         return yScale(d.count);
+    //     })
+    //     .attr("r", radius)
+    //     .on("mouseover", handleMouseOver)
+    //     .on("mouseout", handleMouseOut);
+
+    focus.append("circle")
+        .attr("class", "y")
+        .style("fill", "none")
+        .style("stroke", "blue")
+        .attr("r", 4);
+    
+    svg.append("rect")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("fill", "none")
+        .style("pointer-events", "all")
+        .on("mouseout-line", handleMouseOut)
+        .on("mouseover-line", handleMouseOver)
+        .on("mousemove-line", handleMouseMove);
 }
     
 
