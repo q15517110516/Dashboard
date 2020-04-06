@@ -1,0 +1,30 @@
+.item-list {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between; */
+}
+
+.items {
+    list-style: none;
+    padding-left: 0;
+    width: 250px;
+}
+
+.items li {
+    color: #333;
+    background-color: rgba(255, 255, 255, .5);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    list-style: none;
+    transition: background-color .2s ease-out;
+}
+
+.items li:hover {
+    background-color: pink;
+    cursor: pointer;
+}
+
+ul.items {
+    padding: 0;
+}
