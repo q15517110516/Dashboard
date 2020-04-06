@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Slider, Checkbox, Divider } from 'antd';
+import { Slider, Checkbox } from 'antd';
+import 'antd/dist/antd.css';
 import './Filter.css';
 
 
@@ -44,28 +45,36 @@ export class Filter extends Component {
     render() {
         return (
             <div className="filter-box">
+                
                 <div className="title">Filter</div>
-                <h4>Gender</h4>
-                <div className="checkbox">
-                    <Checkbox
-                        indeteriminate = {this.state.indeterminate}
-                        onChange = {this.onCheckAllChange}
-                        checked = {this.state.checkAll}
-                    >
-                    Check All    
-                    </Checkbox>
+                
+                <div className="gender-checkbox">
+                    <h4>Gender</h4>
+                    <div className="checkbox" >
+                        <Checkbox
+                            indeteriminate = {this.state.indeterminate}
+                            onChange = {this.onCheckAllChange}
+                            checked = {this.state.checkAll}
+                            
+                        >
+                        Check All    
+                        </Checkbox>
+                    </div>
+                    <br />
+                    <div className="checkboxGroup">
+                        <CheckboxGroup
+                            options = {plainOptions}
+                            value = {this.state.checkedList}
+                            onChange = {this.onChangeCheckbox}
+                            />
+                            
+                    </div>
                 </div>
-                <br />
-                <div className="checkboxGroup">
-                    <CheckboxGroup
-                        options = {plainOptions}
-                        value = {this.state.checkedList}
-                        onChange = {this.onChangeCheckbox} />
-
+                
+                <div className="age-slider">
+                    <h4>Age</h4>
+                    <Slider defaultValue={0} onChange = {this.onChangeSlider} />
                 </div>
-                <Divider />
-                <h4>Age</h4>
-                <Slider defaultValue={0} onChange = {this.onChangeSlider} />
             </div>
         )
     }

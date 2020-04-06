@@ -4,3 +4,23 @@
     padding: 0 30px 50px 30px;
     height: 100%;
 }
+
+.gender-checkbox {
+    height: 40%;
+    margin-top: 20px;
+}
+
+.age-slider {
+    margin-top: 20px;
+    height: 30%;
+}
+
+h4 {
+    color: white;
+}
+
+.ant-checkbox-group-item,
+.ant-checkbox-wrapper {
+    color: white;
+    font: 18px sans-serif;
+}
