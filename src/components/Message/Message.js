@@ -3,11 +3,13 @@ import './Message.css';
 import MessageBox from './MessageBox';
 
 export class Message extends Component {
+
+
     render() {
         return (
             <div className="message">
                 <div className="title">Message</div>
-                <div className="">
+                <div className="messagebody">
                     <MessageBox/>
                 </div>
             </div>
