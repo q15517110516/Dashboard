@@ -1,6 +1,8 @@
 /* Users component*/
 
-.comp-users {
+.all-users {
+    display: flex;
+    flex-direction: column;
     color: white;
     font: 25px sans-serif;
     background-color: #1E1E2F;

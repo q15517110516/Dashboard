@@ -24,11 +24,14 @@ export class Users extends Component {
     render() {
         const { selectedUser } = this.state;
         return (
-            <div className="comp-users">
-                <MyUser
-                    user = {selectedUser}
-                    changeSelectUser={this.changeSelectUser}                   
-                />
+            <div className="all-users">
+                <div className="title">User Profile</div>
+                <div>
+                    <MyUser
+                        user = {selectedUser}
+                        changeSelectUser={this.changeSelectUser}                   
+                    />
+                </div>
             </div>
         )
     }

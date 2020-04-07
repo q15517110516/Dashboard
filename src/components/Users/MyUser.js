@@ -40,10 +40,7 @@ export class MyUsers extends Component {
         return (
             <div>
                 {/* User Profile */}
-                <div className="userpro">
-                    
-                    {/* Title */}
-                    <div className="title">User Profile</div>
+                <div className="userpro">                    
                     
                     {/* User List */} 
                     <div className="users">
