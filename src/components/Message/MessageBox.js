@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './MessageBox.css';
 import MessageList from './MessageList';
 import Input from './Input';
-import data from '../../data';
-
 
 
 export class MessageBox extends Component {
@@ -14,7 +12,7 @@ export class MessageBox extends Component {
             messages: [],
             member: {
                 username: "Nick Fury",
-                icon: "https://vignette.wikia.nocookie.net/doblaje/images/6/6d/Nick-fury-marvel-ultimate-alliance-3-the-black-order-66.6.jpg/revision/latest?cb=20190719020539&path-prefix=es"
+                
             }
         };
         
@@ -57,11 +55,16 @@ export class MessageBox extends Component {
         // let { user } = this.props;
         return (
             <div className="messagebox">
-                <MessageList 
-                    messages={this.state.messages}
-                    currentMember={this.state.member}
-                />
-                <Input onSendMessage={this.onSendMessage}/>        
+                <div className="messageList">
+                    <MessageList 
+                        messages={this.state.messages}
+                        currentMember={this.state.member}
+                    />
+                </div>
+                <div className="messageinput">
+                    <Input onSendMessage={this.onSendMessage}/>
+                </div>
+                
             </div>
         )
     }

@@ -1,5 +1,16 @@
-.message {
+.messagebox {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    border: 2px solid white;
+}
+
+.messageList {
+    height: 80%;
+}
+
+.messageinput {
+    height: 20%;
+    border: 1px solid white;
 }

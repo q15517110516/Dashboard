@@ -10,3 +10,8 @@
     max-width: 100%;
     padding: 0 30px 50px 30px;
 }
+
+.messagebody {
+    height: 100%;
+    width: 100%;
+}

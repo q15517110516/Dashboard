@@ -22,7 +22,7 @@ export class MessageList extends Component {
         const className = messageFromMe ? "Messages-message currentMember" : "Messages-message";
         return (
             <li className={className}>
-                <span className="avatar" style={{backgroundColor: member.clientData.color}}/>
+                <img className="avatar" src={"https://vignette.wikia.nocookie.net/doblaje/images/6/6d/Nick-fury-marvel-ultimate-alliance-3-the-black-order-66.6.jpg/revision/latest?cb=20190719020539&path-prefix=es"}/>
                 <div className="Message-content">
                     <div className="membername">
                         {member.clientData.username}
