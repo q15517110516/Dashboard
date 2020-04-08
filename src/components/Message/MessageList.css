@@ -1,12 +1,17 @@
 .message-list {
     padding: 20px 0;
-    /* max-width: 900px; */
+    height: 100%;
+    max-height: 566px;
     width: 100%;
     margin: 0 auto;
     list-style: none;
     padding-left: 0;
     flex-grow: 1;
     overflow: auto;
+}
+
+.messageinput {
+    border: 1px solid white;
 }
 
 .Messages-message {
@@ -28,7 +33,7 @@
 }
 
 .Messages-message>.avatar {
-    height: 44px;
+    height: 48px;
     width: 42px;
     border-radius: 5px;
     display: inline-block;
@@ -37,21 +42,19 @@
 
 .Message-content>.membername {
     display: block;
-    color: gray;
+    color: grey;
     font-size: 14px;
     padding-bottom: 4px;
 }
 
 .Message-content>.text {
     padding: 10px;
-    /* max-width: 400px; */
+    max-width: 400px;
+    word-wrap: break-word;
+    height: auto;
     margin: 0;
     border-radius: 12px;
-    background-color: cornflowerblue;
+    background-color: #1F8EF1;
     color: white;
     display: inline-block;
-}
-
-.currentMember>.Message-content .text {
-    background-color: orangered;
 }

@@ -28,11 +28,10 @@ export class Input extends Component {
         return (
             <div className="input">
                 <form onSubmit={e => this.onSubmit(e)}>
-                    <input onChange={e => this.onChange(e)}
+                    <textarea onChange={e => this.onChange(e)}
                         value={this.state.text}
-                        type="text"
+                        style={{resize: "none"}}
                         placeholder="Enter your message and press ENTER"
-                        
                     />
                     <button>Send</button>
                 </form>
