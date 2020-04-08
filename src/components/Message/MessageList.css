@@ -1,17 +1,13 @@
 .message-list {
     padding: 20px 0;
     height: 100%;
-    max-height: 566px;
+    max-height: 567px;
     width: 100%;
     margin: 0 auto;
     list-style: none;
     padding-left: 0;
     flex-grow: 1;
     overflow: auto;
-}
-
-.messageinput {
-    border: 1px solid white;
 }
 
 .Messages-message {
@@ -43,7 +39,7 @@
 .Message-content>.membername {
     display: block;
     color: grey;
-    font-size: 14px;
+    font: 14px sans-serif;
     padding-bottom: 4px;
 }
 

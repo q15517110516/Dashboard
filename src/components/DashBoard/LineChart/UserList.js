@@ -20,7 +20,7 @@ export class UserList extends Component {
                 renderItem={user => 
                     <List.Item className="user"  onClick={() => this.selectUser(user)}>
                         <div>
-                            { `${user.name}`}
+                            {user.name}
                         </div>
                     </List.Item>}
                 />  

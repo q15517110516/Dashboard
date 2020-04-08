@@ -2,23 +2,43 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    min-width: 630px;
-    max-height: 712px;
-    height: 100%;
     border-radius: 15px;
+    min-width: 630px;
+    border: 1px solid white;
+    height: 712px;
+    background-color: #25282b;
 }
 
 .chatlist {
     height: 100%;
-    width: 250px;
-    border: 1px solid white;
+    width: 300px;
+    overflow: auto;
+}
+
+.chatuser {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    color: white;
+}
+
+.chatuserphoto {
+    width: 20%;
+    height: 60px;
+    margin-left: 20px;
+}
+
+.chatusername {
+    width: 80%;
+    font: 20px sans-serif;
+    text-align: left;
+    margin-left: 20px;
 }
 
 .chatbox {
     display: flex;
     flex-direction: column;
     width: calc(100% - 250px);
-    border: 1px solid white;
     height: 100%;
 }
 

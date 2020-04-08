@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './MessageBox.css';
 import MessageList from './MessageList';
 import Input from './Input';
+import data from '../../data';
+import { List } from 'antd';
+
 
 
 export class MessageBox extends Component {
@@ -84,7 +87,19 @@ export class MessageBox extends Component {
         return (
             <div className="messagebox">
                 <div className="chatlist">
-                
+                    <List
+                    size="large"
+                    dataSource={data}
+                    renderItem={user => 
+                        <List.Item className="chatuser">
+                            <div className="chatuserphoto">
+                                <img src={user.img} style={{ width: 55, height: 60 }}/>
+                            </div>
+                            <div className="chatusername">
+                                {user.name}
+                            </div>
+                        </List.Item>}
+                    />
                 </div>
             
                 <div className="chatbox">
