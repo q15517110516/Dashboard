@@ -24,14 +24,16 @@ export class Input extends Component {
         this.props.onSendMessage(this.state.text);
     }
 
+
     submitOnEnter(e){
-        if(e.which === 13){
+        if(e.which === 13 && !e.shiftKey){
             e.target.form.dispatchEvent(new Event("submit", {cancelable: true}));
             e.preventDefault();
         }
     }
 
     render() {
+        
         return (
             <div>
                 <form className="input" onSubmit={e => this.onSubmit(e)}>
@@ -39,7 +41,7 @@ export class Input extends Component {
                         value={this.state.text}
                         style={{resize: "none"}}
                         placeholder="Enter your message and press ENTER"
-                        keypress={e => this.submitOnEnter(e)}
+                        onKeyDown={this.submitOnEnter}
                         
                     />
                     <button className="sendbtn" >Send</button>

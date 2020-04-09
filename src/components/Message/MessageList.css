@@ -12,11 +12,13 @@
 .Messages-message {
     display: flex;
     margin-top: 10px;
+    margin-left: 10px;
 }
 
 .Messages-message.currentMember {
     flex-direction: row-reverse;
     text-align: right;
+    margin: 10px;
 }
 
 .Message-content {
@@ -51,4 +53,5 @@
     background-color: #1F8EF1;
     color: white;
     display: inline-block;
+    white-space: pre-wrap;
 }
