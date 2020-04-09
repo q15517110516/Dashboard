@@ -11,6 +11,11 @@ export class ToDoApp extends Component {
                 {text: "Your ToDo List", key: 1},
                 {text: "Your ToDo List", key: 2},
                 {text: "Your ToDo List", key: 3},
+                {text: "Your ToDo List", key: 4},
+                {text: "Your ToDo List", key: 5},
+                {text: "Your ToDo List", key: 6},
+                {text: "Your ToDo List", key: 7},
+                {text: "Your ToDo List", key: 8},
             ],
         };
         this.addItem = this.addItem.bind(this);
