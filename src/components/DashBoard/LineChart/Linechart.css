@@ -1,6 +1,5 @@
 .dash-Linechart {
     display: flex;
-    /* flex-direction: column; */
     color: white;
     font-family: sans-serif;
     width: 100%;
@@ -17,7 +16,6 @@
 .userlist {
     background-color: #1E1E2F;
     border-radius: 10px;
-    /* width: 100%; */
     width: calc(100% - 1150px);
     min-width: 280px;
     margin-left: 40px;

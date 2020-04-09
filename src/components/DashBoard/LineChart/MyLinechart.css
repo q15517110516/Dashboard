@@ -4,11 +4,18 @@
     padding: 0 30px 50px 30px;
 }
 
+.currentuser {
+    padding-left: 40px;
+    height: 80px;
+    width: 100%;
+    font: 20px sans-serif;
+}
+
 .title {
     font-size: 27px;
 }
 
 .mylinechart {
     margin: 30px;
-    padding-top: 50px;
+    /* padding-top: 50px; */
 }
