@@ -10,7 +10,7 @@ export class MyLinechart extends Component {
             <div className="PerformanceSheet">
                 <div className="title">Performance Sheet</div>
                 <div className="mylinechart" style={{ overflowX: 'auto', overflowY: 'hidden' }}>
-                    <LineChart data={user} width={1300} height={400}/>
+                    <LineChart data={user} width={1000} height={400}/>
                 </div>
                 
             </div>
