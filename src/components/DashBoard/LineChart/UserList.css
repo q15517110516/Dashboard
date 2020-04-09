@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     padding: 0 30px 50px 30px;
-    height: 100%;
+    overflow: auto;
 }
 
 .user {
@@ -11,12 +11,10 @@
     font: 20px sans-serif;
 }
 
-
-/* 
 .user:hover {
     background-color: silver;
 }
 
 .user:active {
     background-color: rgb(231, 230, 230);
-} */
+}
