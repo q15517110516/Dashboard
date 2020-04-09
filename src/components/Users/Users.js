@@ -9,9 +9,10 @@ export class Users extends Component {
     constructor(props){
         super(props);
         this.state={
-            selectedUser: data,
+            allUser: data,
             selectUser: data[0],
-            
+            includedGender: ['Male', 'Female', 'Unknown'],
+            greaterThenAge: 0,
         }
     };
 
@@ -21,15 +22,21 @@ export class Users extends Component {
         });
     };
 
+
     render() {
-        const { selectedUser } = this.state;
+        const { allUser, selectUser, greaterThenAge, includedGender } = this.state;
+        const filteredData = data.filter(user=>includedGender.indexOf(user.gender) !== -1)
+                                    .filter(user=>user.age > greaterThenAge);
+
         return (
             <div className="all-users">
                 <div className="title">User Profile</div>
                 <div>
                     <MyUser
-                        user = {selectedUser}
-                        changeSelectUser={this.changeSelectUser}                   
+                        user = {allUser} 
+                        selectedUser={selectUser}
+                        data={filteredData} 
+                        changeSelectUser={this.changeSelectUser}                  
                     />
                 </div>
             </div>
