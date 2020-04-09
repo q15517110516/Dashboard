@@ -17,11 +17,13 @@ export class MyUsers extends Component {
         // this.select=this.select.bind(this);
     };
 
-    select = (selectedUser) => {
-        this.props.changeSelectUser(selectedUser);
-    };
+
 
     showModal = (visible) => {
+        let select = (user) => {
+            this.props.changeSelectUser(user);
+            console.log(user);
+        };
         this.setState({
             visible
         });
@@ -42,9 +44,8 @@ export class MyUsers extends Component {
 
     render() {
 
-        const { data, user, selectedUser } = this.props;
+        const { data } = this.props;
         // const { visible } = this.state;
-        console.log(selectedUser)
         // if(selectedUser == null){
         //     selectedUser = {
         //         name: 'null',
@@ -64,16 +65,38 @@ export class MyUsers extends Component {
                     {/* User List */} 
                         <List 
                             className="users"
-                            grid={{ gutter: 16, }}
+                            grid={{ gutter: 10 }}
                             dataSource={data}
-                            renderItem={item => (
-                                <List.Item className="listitem">
+                            renderItem={user => (
+                                <List.Item className="listitem" >
                                 <div className="userbox">
                                     <div className="photo">
-                                        <img src={item.img} style={{width: 105, height: 120}} alt="user"/>
+                                        <img src={user.img} 
+                                            style={{width: 105, height: 120}} 
+                                            alt="user" 
+                                            onClick={() => this.showModal(true)}/>
+                                        <Modal className="modal"
+                                            title="Personal Information"
+                                            footer={[
+                                                <Button key="cancel" onClick={() => this.showModal(false)}>Cancel</Button>
+                                            ]}
+                                            centered
+                                            visible={this.state.visible}
+                                            onCancel={() => this.showModal(false)}>
+                                            
+                                            <div className="personalInfo">
+                                                <p>Name: {user.name}</p>
+                                                <p>Gender: {user.gender}</p>
+                                                <p>Age: {user.age}</p>
+                                                <p>ID: {user.ID}</p>
+                                                <p>Contact Number: {user.phone}</p>
+                                                <p>Email: {user.email}</p>
+                                            </div>
+                                            
+                                        </Modal>
                                     </div>
                                     <div className="username">
-                                        <span>{item.name}</span>
+                                        <span>{user.name}</span>
                                     </div>
                                 </div>
                                     
