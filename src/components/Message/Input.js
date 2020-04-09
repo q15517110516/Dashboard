@@ -24,16 +24,25 @@ export class Input extends Component {
         this.props.onSendMessage(this.state.text);
     }
 
+    submitOnEnter(e){
+        if(e.which === 13){
+            e.target.form.dispatchEvent(new Event("submit", {cancelable: true}));
+            e.preventDefault();
+        }
+    }
+
     render() {
         return (
-            <div className="input">
-                <form onSubmit={e => this.onSubmit(e)}>
-                    <textarea onChange={e => this.onChange(e)}
+            <div>
+                <form className="input" onSubmit={e => this.onSubmit(e)}>
+                    <textarea className="inputbox" onChange={e => this.onChange(e)}
                         value={this.state.text}
                         style={{resize: "none"}}
                         placeholder="Enter your message and press ENTER"
+                        keypress={e => this.submitOnEnter(e)}
+                        
                     />
-                    <button>Send</button>
+                    <button className="sendbtn" >Send</button>
                 </form>
                 
             </div>

@@ -93,7 +93,7 @@ export class MessageBox extends Component {
                     renderItem={user => 
                         <List.Item className="chatuser">
                             <div className="chatuserphoto">
-                                <img src={user.img} style={{ width: 55, height: 60 }}/>
+                                <img src={user.img} alt="userphoto" style={{ width: 55, height: 60 }}/>
                             </div>
                             <div className="chatusername">
                                 {user.name}

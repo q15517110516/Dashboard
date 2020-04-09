@@ -22,7 +22,7 @@ export class MessageList extends Component {
         const className = messageFromMe ? "Messages-message currentMember" : "Messages-message";
         return (
             <li className={className} key={i}>
-                <img className="avatar" src={member.img}/>
+                <img className="avatar" src={member.img} alt="userphoto"/>
                 <div className="Message-content">
                     <div className="membername">
                         {member.username}
