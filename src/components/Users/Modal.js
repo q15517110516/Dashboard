@@ -8,10 +8,12 @@ export class Modal extends Component {
         
     }
 
-    render() {
+    selectUser = (user) => {
+        this.props.changeSelectUser(user);
+    };
 
-        const { visible, userselect } = this.props;
-        console.log(userselect)
+    render() {
+        const { visible, userselected } = this.props;
         return (
             
             visible &&
@@ -19,7 +21,7 @@ export class Modal extends Component {
                 <div className="modal">
                     <div className="modal-title">Personal Information</div>
                     <div className="modal-content">
-                        {userselect.name}
+                        {userselected.name}
                     </div>
                     <div className="modal-operator">
                         <button className="modal-operator-close">Close</button>

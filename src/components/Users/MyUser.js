@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'antd';
 import './MyUser.css';
-import { List } from 'antd';
-
-// import Modal from './Modal';
-// import data from '../../data';
+import data from '../../data';
 
 export class MyUsers extends Component {
     
@@ -12,50 +9,26 @@ export class MyUsers extends Component {
         super();
         this.state = {
             visible: false,
+            selectUser: data[0],
         };
-        // this.showModal=this.showModal.bind(this);
-        // this.select=this.select.bind(this);
     };
 
-
-
+    changeSelectUser = (user) => {
+        this.setState({
+            selectUser: user
+        });
+    };
     showModal = (visible) => {
-        let select = (user) => {
-            this.props.changeSelectUser(user);
-            console.log(user);
-        };
         this.setState({
             visible
         });
     };
 
-    // onClick(e){
-    //     var select = (user) => {
-    //         this.props.changeSelectUser(user);
-    //     };
-    
-    //     var showModal = (visible) => {
-    //         this.setState({
-    //             visible
-    //         });
-    //     };
-    
-    // }
-
     render() {
 
-        const { data } = this.props;
-        // const { visible } = this.state;
-        // if(selectedUser == null){
-        //     selectedUser = {
-        //         name: 'null',
-        //         gender: 'null',
-        //         age: 'null',
-        //         ID: 'null',
-        //         phone: 'null',
-        //         email: 'null',
-        //     }
-        // }
+        const { selectUser } = this.state;
+        const { user } = this.props;
+
 
         return (
             <div>
@@ -63,46 +36,54 @@ export class MyUsers extends Component {
                 <div className="userpro">                    
                     
                     {/* User List */} 
-                        <List 
-                            className="users"
-                            grid={{ gutter: 10 }}
-                            dataSource={data}
-                            renderItem={user => (
-                                <List.Item className="listitem" >
-                                <div className="userbox">
-                                    <div className="photo">
-                                        <img src={user.img} 
-                                            style={{width: 105, height: 120}} 
-                                            alt="user" 
-                                            onClick={() => this.showModal(true)}/>
-                                        <Modal className="modal"
-                                            title="Personal Information"
-                                            footer={[
-                                                <Button key="cancel" onClick={() => this.showModal(false)}>Cancel</Button>
-                                            ]}
-                                            centered
-                                            visible={this.state.visible}
-                                            onCancel={() => this.showModal(false)}>
-                                            
-                                            <div className="personalInfo">
-                                                <p>Name: {user.name}</p>
-                                                <p>Gender: {user.gender}</p>
-                                                <p>Age: {user.age}</p>
-                                                <p>ID: {user.ID}</p>
-                                                <p>Contact Number: {user.phone}</p>
-                                                <p>Email: {user.email}</p>
-                                            </div>
-                                            
-                                        </Modal>
-                                    </div>
-                                    <div className="username">
-                                        <span>{user.name}</span>
-                                    </div>
-                                </div>
+                    <div className="users">
+                        
+                        {/* User Box */}
+                        {user.map(user => (
+                        <div className="userbox" key={user.code}>
+                            <div className="userphoto">
+
+                                {/* Image */}
+                                <img className="photo" 
+                                    src={user.img} 
+                                    aria-hidden 
+                                    alt="userphoto" 
+                                    onClick={() => {this.changeSelectUser(user); this.showModal(true);}}/>
+                                
+                                {/* Click to display users info */}
+                                <Modal className="modal"
+                                    title="Personal Information"
+                                    centered
+                                    style={{ top: "50%", left: "50%"}}
+                                    visible={this.state.visible}
+                                    onCancel={() => this.showModal(false)}
+                                    footer={[
+                                        <Button key="cancel" onClick={() => this.showModal(false)}>Cancel</Button>
+                                    ]}
+                                    >
                                     
-                                </List.Item>
-                            )}
-                        />
+                                    <div className="personalInfo">
+                                        <p>Name: {selectUser.name}</p>
+                                        <p>Gender: {selectUser.gender}</p>
+                                        <p>Age: {selectUser.age}</p>
+                                        <p>ID: {selectUser.ID}</p>
+                                        <p>Contact Number: {selectUser.phone}</p>
+                                        <p>Email: {selectUser.email}</p>
+                                    </div>
+                                </Modal>
+                                
+                            </div>
+
+                            {/* User Name */}
+                            <div className="username">
+                                {user.name}
+                            </div>
+                            
+                        </div>
+                        ))}
+
+                    </div>
+                
                 </div>  
                 
             </div>

@@ -10,33 +10,20 @@ export class Users extends Component {
         super(props);
         this.state={
             allUser: data,
-            selectUser: data[0],
             includedGender: ['Male', 'Female', 'Unknown'],
             greaterThenAge: 0,
         }
     };
 
-    changeSelectUser = value => {
-        this.setState({
-            selectUser: value
-        });
-    };
-
-
     render() {
-        const { allUser, selectUser, greaterThenAge, includedGender } = this.state;
-        const filteredData = data.filter(user=>includedGender.indexOf(user.gender) !== -1)
-                                    .filter(user=>user.age > greaterThenAge);
-
+        const { allUser } = this.state;
+        
         return (
             <div className="all-users">
                 <div className="title">User Profile</div>
                 <div>
                     <MyUser
-                        user = {allUser} 
-                        selectedUser={selectUser}
-                        data={filteredData} 
-                        changeSelectUser={this.changeSelectUser}                  
+                        user={allUser}              
                     />
                 </div>
             </div>
