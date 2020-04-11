@@ -1,0 +1,43 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.home-boxes {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.taskComplete,
+.totalIncome,
+.newEmployees {
+    display: flex;
+    width: 25%;
+    min-width: 315px;
+    color: white;
+    height: 150px;
+    border-radius: 10px;
+    background-color: #1E1E2F;
+    margin-right: 20px;
+}
+
+.home-icons {
+    font-size: 60px;
+}
+
+.home-activities {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font: 27px sans-serif;
+    background-color: #1E1E2F;
+    border-radius: 10px;
+    width: 50%;
+    min-width: 630px;
+    height: auto;
+    max-width: 100%;
+    padding: 0 30px 50px 30px;
+}
