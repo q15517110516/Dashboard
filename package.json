@@ -10,6 +10,7 @@
     "bootstrap": "^4.4.1",
     "d3": "^5.15.0",
     "react": "^16.13.1",
+    "react-animated-number": "^0.4.4",
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.1",
     "react-flip-move": "^3.0.4",
