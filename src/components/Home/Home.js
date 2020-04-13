@@ -47,6 +47,13 @@ export class Home extends Component {
                     </div>
                 </div>
 
+                {/* Home Chart */}
+                <div className="home-chart">
+                    <div>
+                    
+                    </div>
+                </div>
+
                 {/* Activities */}
                 <div className="home-activities">
                     <div className="title">Activities</div>

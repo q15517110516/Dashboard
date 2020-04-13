@@ -5,7 +5,10 @@ const draw = (props) => {
     const data = props.data;
     const width = props.width;
     const height = props.height;
-    let svg = d3.select('.vis-homechart').append('svg').attr('width', width).attr('height', height);
+    let svg = d3.select('.vis-homechart')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
     
 }
 
