@@ -1,4 +1,8 @@
 import * as d3 from 'd3';
+import { taskCompleted, 
+    newEmployees, 
+    supplies, 
+    monthlyIncome } from '../../components/Home/homedata';
 
 const draw = (props) => {
     d3.select(".vis-homechart > *").remove();

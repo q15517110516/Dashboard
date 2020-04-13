@@ -43,3 +43,20 @@ const supplies = [
     {"month": "Nov", "value": 253},
     {"month": "Dec", "value": 271},
 ]
+
+const monthlyIncome =[
+    {"month": "Jan", "value": 1738692},
+    {"month": "Feb", "value": 2716484},
+    {"month": "Mar", "value": 1836633},
+    {"month": "Apr", "value": 1827503},
+    {"month": "May", "value": 1275632},
+    {"month": "Jun", "value": 1827453},
+    {"month": "Jul", "value": 1725483},
+    {"month": "Aug", "value": 1237562},
+    {"month": "Sept", "value": 1243211},
+    {"month": "Oct", "value": 2243221},
+    {"month": "Nov", "value": 1927462},
+    {"month": "Dec", "value": 1123212},
+]
+
+export {taskCompleted, newEmployees, supplies, monthlyIncome};
