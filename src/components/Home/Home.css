@@ -43,11 +43,12 @@
 }
 
 .home-text {
-    font: 16px sans-serif;
+    font: 18px sans-serif;
 }
 
 .home-numbers {
-    font: 24px sans-serif;
+    /* transition: 0.8s ease-out; */
+    font: 28px sans-serif;
 }
 
 .home-activities {
