@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import draw from './vis';
 
-export class MyChart extends Component {
+export class HomeChart extends Component {
 
     componentDidMount(){
         draw(this.props);
@@ -12,9 +12,9 @@ export class MyChart extends Component {
     }
     render() {
         return (
-            <div className="vis-mychart" />
+            <div className="vis-homechart" />
         )
     }
 }
 
-export default MyChart
+export default HomeChart
