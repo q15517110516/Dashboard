@@ -6,10 +6,7 @@ import { AiOutlineCheckCircle,
         AiOutlineUserAdd,
         AiOutlineGold } from 'react-icons/ai';
 import AnimatedNumber from 'react-animated-number';
-import { taskCompleted, 
-        newEmployees, 
-        supplies, 
-        monthlyIncome } from './homedata';
+import homedata from './homedata';
 
 export class Home extends Component {
 
@@ -19,27 +16,16 @@ export class Home extends Component {
     render() {
 
         let totalmonthlyIncome = 0;
-        monthlyIncome.forEach(elem => {
-            totalmonthlyIncome += elem.value;
-            
-        });
         let totaltaskCompleted = 0;
-        taskCompleted.forEach(elem => {
-            totaltaskCompleted += elem.value;
-            
-        });
         let totalnewEmployees = 0;
-        newEmployees.forEach(elem => {
-            totalnewEmployees += elem.value;
-            
-        });
         let totalsupplies = 0;
-        supplies.forEach(elem => {
-            totalsupplies += elem.value;
-            
-        });
-        
-
+        homedata.forEach(elem => {
+            totalmonthlyIncome += elem.monthlyIncome;
+            totaltaskCompleted += elem.taskCompleted;
+            totalnewEmployees += elem.newEmployees;
+            totalsupplies += elem.supplies;
+        })
+    
         return (
             <div className="home">
 

@@ -82,7 +82,7 @@ const draw = (props) => {
 
 
     //Add Y axis
-    var yScale = d3.scaleLinear()
+    let yScale = d3.scaleLinear()
             .domain([0, 10])
             .range([height,0]);
     svg.append("g")
