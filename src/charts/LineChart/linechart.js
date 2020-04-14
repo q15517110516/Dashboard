@@ -73,6 +73,7 @@ const draw = (props) => {
                 return d.date;
             }))
             .range([0, width]);
+    
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(xScale))
@@ -87,7 +88,8 @@ const draw = (props) => {
             .range([height,0]);
     svg.append("g")
         .call(d3.axisLeft(yScale)
-        .ticks(5))
+                .ticks(5)
+        )
         .attr("stroke-width", 0)
         .style("font", "14px times");
 
@@ -102,7 +104,7 @@ const draw = (props) => {
             
 
     //Add the line
-    var path = svg.append("path")
+    let path = svg.append("path")
         .datum(data)
         .attr("class", "line")
         .attr("d", d3.line()
@@ -115,7 +117,7 @@ const draw = (props) => {
             .curve(d3.curveMonotoneX)
             );
         
-    var totalLength = path.node().getTotalLength();
+    let totalLength = path.node().getTotalLength();
     path.attr("stroke-dasharray", totalLength + " " + totalLength)
         .attr("stroke-dashoffset", totalLength)
         .transition()

@@ -7,6 +7,7 @@ import { AiOutlineCheckCircle,
         AiOutlineGold } from 'react-icons/ai';
 import AnimatedNumber from 'react-animated-number';
 import homedata from './homedata';
+import HomeChart from '../../charts/HomeChart';
 
 export class Home extends Component {
 
@@ -63,8 +64,8 @@ export class Home extends Component {
 
                 {/* Home Chart */}
                 <div className="home-chart">
-                    <div >
-                    
+                    <div style={{ overflowX: 'auto', overflowY: 'hidden' }}>
+                        <HomeChart width={1000} height={400}/>
                     </div>
                 </div>
 
