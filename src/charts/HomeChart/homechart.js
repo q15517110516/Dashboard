@@ -16,15 +16,16 @@ const draw = (props) => {
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     let bisectDate = d3.bisector(function(d) { return d.month; }).left;
-    console.log(bisectDate)
 
     homedata.forEach(function(d){
         d.month = d3.timeParse("%Y-%m-%d")(d.month);
         d.taskCompleted = +d.taskCompleted;
         d.newEmployees = +d.newEmployees;
         d.supplies = +d.supplies;
-        // console.log(d.month)
+
     })
+    // let g = svg.append("g")
+    //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // Add Y axis
     let xScale = d3.scaleTime()
@@ -47,6 +48,7 @@ const draw = (props) => {
     let yScale = d3.scaleLinear()
             .domain([0, 500])
             .range([height,0]);
+
     svg.append("g")
         .call(d3.axisLeft(yScale)
                 .ticks(5)
@@ -80,11 +82,9 @@ const draw = (props) => {
         })
         .curve(d3.curveMonotoneX);
 
-    let g = svg.append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     
     // Display the path
-    g.append("path")
+    svg.append("path")
         .datum(homedata)
         .attr("class", "taskCompleted-line")
         .attr("d", line1)
@@ -92,7 +92,7 @@ const draw = (props) => {
         .attr("stroke", "#E14ECA")
         .attr("stroke-width", 4);
 
-    g.append("path")
+    svg.append("path")
         .datum(homedata)
         .attr("class", "newEmployees-line")
         .attr("d", line2)
@@ -100,7 +100,7 @@ const draw = (props) => {
         .attr("stroke", "#1F8EF1")
         .attr("stroke-width", 4);
 
-    g.append("path")
+    svg.append("path")
         .datum(homedata)
         .attr("class", "supplies-line")
         .attr("d", line3)
@@ -108,14 +108,16 @@ const draw = (props) => {
         .attr("stroke", "#DC3545")
         .attr("stroke-width", 4);
 
-    let focus = g.append("g")
+    let focus = svg.append("g")
         .attr("class", "focus")
         .style("display", "none");
     
     focus.append("line")
         .attr("class", "x-hover-line hover-line")
         .attr("y1", 0)
-        .attr("y2", height);
+        .attr("y2", height)
+        .attr("stroke", "white")
+        .attr("stroke-width", 3);
 
     focus.append("line")
         .attr("class", "y-hover-line hover-line")
@@ -126,14 +128,13 @@ const draw = (props) => {
         .attr("r", 7.5);
 
     svg.append("rect")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-    .attr("class", "overlay")
-    .attr("width", width)
-    .attr("height", height)
-    .attr("opacity", 0)
-    .on("mouseover", function() { focus.style("display", null); })
-    .on("mouseout", function() { focus.style("display", "none"); })
-    .on("mousemove", mousemove);
+        .attr("class", "overlay")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("opacity", 0)
+        .on("mouseover", function() { focus.style("display", null); })
+        .on("mouseout", function() { focus.style("display", "none"); })
+        .on("mousemove", mousemove);
 
     function mousemove() {
         let x0 = xScale.invert(d3.mouse(this)[0]),
@@ -142,8 +143,11 @@ const draw = (props) => {
             d1 = homedata[i],
             d = x0 - d0.month > d1.month - x0 ? d1 : d0;
         focus.attr("transform", "translate(" + xScale(d.month) + "," + yScale(d.taskCompleted) + ")");
+        focus.attr("transform", "translate(" + xScale(d.month) + "," + yScale(d.newEmployees) + ")");
+        focus.attr("transform", "translate(" + xScale(d.month) + "," + yScale(d.supplies) + ")");
+
         // focus.select("text").text(function() { return d.value; });
-        focus.select(".x-hover-line").attr("y2", height - yScale(d.taskCompleted));
+        focus.select(".x-hover-line").attr("y2", height);
         focus.select(".y-hover-line").attr("x2", width + width);
     }
 
