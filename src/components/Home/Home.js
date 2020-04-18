@@ -64,8 +64,8 @@ export class Home extends Component {
 
                 {/* Home Chart */}
                 <div className="home-chart">
-                    <div style={{ overflowX: 'auto', overflowY: 'hidden' }}>
-                        <HomeChart width={1000} height={400}/>
+                    <div style={{ overflowX: 'auto', overflowY: 'hidden', margin: 50}}>
+                        <HomeChart width={1400} height={500}/>
                     </div>
                 </div>
 

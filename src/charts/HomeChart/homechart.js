@@ -39,7 +39,7 @@ const draw = (props) => {
         .call(d3.axisBottom(xScale)
                 .tickFormat(d3.timeFormat("%b"))
             )
-        .attr("stroke-width", 1)
+        .attr("stroke-width", 0)
         .style("font", "13px times")
         .style("font-family", "sans-serif");
 
@@ -108,24 +108,28 @@ const draw = (props) => {
         .attr("stroke", "#DC3545")
         .attr("stroke-width", 4);
 
+
     let focus = svg.append("g")
         .attr("class", "focus")
         .style("display", "none");
     
     focus.append("line")
         .attr("class", "x-hover-line hover-line")
-        .attr("y1", 0)
-        .attr("y2", height)
+        .attr("y1", -height)
+        .attr("y2", (height - margin.top - margin.bottom))
         .attr("stroke", "white")
         .attr("stroke-width", 3);
 
-    focus.append("line")
-        .attr("class", "y-hover-line hover-line")
-        .attr("x1", width)
-        .attr("x2", width);
+    // focus.append("line")
+    //     .attr("class", "y-hover-line hover-line")
+    //     .attr("x1", width)
+    //     .attr("x2", width)
+    //     .attr("stroke", "white")
+    //     .attr("stroke-width", 3);
     
-    focus.append("circle")
-        .attr("r", 7.5);
+    // focus.append("circle")
+    //     .attr("r", radius)
+    //     .style("color", "white");
 
     svg.append("rect")
         .attr("class", "overlay")
@@ -142,13 +146,13 @@ const draw = (props) => {
             d0 = homedata[i - 1],
             d1 = homedata[i],
             d = x0 - d0.month > d1.month - x0 ? d1 : d0;
-        focus.attr("transform", "translate(" + xScale(d.month) + "," + yScale(d.taskCompleted) + ")");
-        focus.attr("transform", "translate(" + xScale(d.month) + "," + yScale(d.newEmployees) + ")");
-        focus.attr("transform", "translate(" + xScale(d.month) + "," + yScale(d.supplies) + ")");
+        focus.attr("transform", "translate(" + xScale(d.month) + "," + yScale(d.taskCompleted) + "," + yScale(d.newEmployees) + ")");
+        // focus.attr("transform", "translate(" + xScale(d.month) + "," + yScale(d.newEmployees) + ")");
+        // focus.attr("transform", "translate(" + xScale(d.month) + "," + yScale(d.supplies) + ")");
 
         // focus.select("text").text(function() { return d.value; });
-        focus.select(".x-hover-line").attr("y2", height);
-        focus.select(".y-hover-line").attr("x2", width + width);
+        // focus.select(".x-hover-line").attr("y2", height);
+        // focus.select(".y-hover-line").attr("x2", width + width);
     }
 
 }
