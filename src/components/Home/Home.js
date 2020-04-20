@@ -36,28 +36,28 @@ export class Home extends Component {
                         <AiOutlineDollar className="home-icons" style={{color: "#28A745"}}/>
                         <div className="home-content">
                             <span className="home-text">Monthly Income</span><br/>
-                            <AnimatedNumber className="home-numbers" value={totalmonthlyIncome} duration={1500} formatValue={this.formatValue}/>
+                            <AnimatedNumber className="home-numbers" value={totalmonthlyIncome} duration={2000} formatValue={this.formatValue}/>
                         </div>
                     </div>
                     <div className="taskComplete">
                         <AiOutlineCheckCircle className="home-icons" style={{color: "#E14ECA"}}/>
                         <div className="home-content">
                             <span className="home-text">Completed Tasks</span><br/>
-                            <AnimatedNumber className="home-numbers" value={totaltaskCompleted} duration={1500} formatValue={this.formatValue}/>
+                            <AnimatedNumber className="home-numbers" value={totaltaskCompleted} duration={2000} formatValue={this.formatValue}/>
                         </div>
                     </div>
                     <div className="newEmployees">
                         <AiOutlineUserAdd className="home-icons" style={{color: "#1F8EF1"}}/>
                         <div className="home-content">
                             <span className="home-text">New Employees</span><br/>
-                            <AnimatedNumber className="home-numbers" value={totalnewEmployees} duration={1500} formatValue={this.formatValue}/>
+                            <AnimatedNumber className="home-numbers" value={totalnewEmployees} duration={2000} formatValue={this.formatValue}/>
                         </div>
                     </div>
                     <div className="supplies">
                         <AiOutlineGold className="home-icons" style={{color: "#DC3545"}}/>
                         <div className="home-content">
                             <span className="home-text">Supplies</span><br/>
-                            <AnimatedNumber className="home-numbers" value={totalsupplies} duration={1500} formatValue={this.formatValue}/>
+                            <AnimatedNumber className="home-numbers" value={totalsupplies} duration={2000} formatValue={this.formatValue}/>
                         </div>
                     </div>
                 </div>

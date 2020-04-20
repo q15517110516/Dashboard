@@ -1,12 +1,19 @@
 import * as d3 from 'd3';
 import homedata from '../../components/Home/homedata';
 import './style.css';
+import _ from 'lodash';
+
 
 const draw = (props) => {
+
+    let data = [];
+    data = _.cloneDeep(homedata);
+
     d3.select(".vis-homechart > *").remove();
     let margin = {top: 20, right: 20, bottom: 30, left: 40};
     const width = props.width - margin.left - margin.right;
     const height = props.height - margin.top - margin.bottom;
+    console.log(height)
     const radius = 5;
 
     let svg = d3.select('.vis-homechart')
@@ -18,7 +25,7 @@ const draw = (props) => {
 
     let bisectDate = d3.bisector(function(d) { return d.month; }).left;
 
-    homedata.forEach(function(d){
+    data.forEach(function(d){
         d.month = d3.timeParse("%Y-%m-%d")(d.month);
         d.taskCompleted = +d.taskCompleted;
         d.newEmployees = +d.newEmployees;
@@ -39,7 +46,7 @@ const draw = (props) => {
 
     // Add Y axis
     let xScale = d3.scaleTime()
-            .domain(d3.extent(homedata, function(d){
+            .domain(d3.extent(data, function(d){
                 return d.month;
             }))
             .range([0, width]);
@@ -75,7 +82,7 @@ const draw = (props) => {
         );
 
     let g = svg.append("g")
-        // .attr("transform", "translate(" ")");
+
 
     // Append the line3
     let line1 = d3.line()
@@ -105,29 +112,52 @@ const draw = (props) => {
 
     
     // Display the path
-    g.append("path")
-        .datum(homedata)
+    let path1 = g.append("path")
+        .datum(data)
         .attr("class", "homechart-line")
         .attr("d", line1)
         .attr("fill", "none")
         .attr("stroke", "#E14ECA")
         .attr("stroke-width", 4);
 
-    g.append("path")
-        .datum(homedata)
+    let path2 = g.append("path")
+        .datum(data)
         .attr("class", "homechart-line")
         .attr("d", line2)
         .attr("fill", "none")
         .attr("stroke", "#1F8EF1")
         .attr("stroke-width", 4);
 
-    g.append("path")
-        .datum(homedata)
+    let path3 = g.append("path")
+        .datum(data)
         .attr("class", "homechart-line")
         .attr("d", line3)
         .attr("fill", "none")
         .attr("stroke", "#DC3545")
         .attr("stroke-width", 4);
+
+    // Add animations to lines
+    let totalLength1 = path1.node().getTotalLength();
+    path1.attr("stroke-dasharray", totalLength1 + " " + totalLength1)
+        .attr("stroke-dashoffset", totalLength1)
+        .transition()
+        .duration(2000)
+        .ease(d3.easeLinear)
+        .attr("stroke-dashoffset", 0);
+    let totalLength2 = path2.node().getTotalLength();
+    path2.attr("stroke-dasharray", totalLength2 + " " + totalLength2)
+        .attr("stroke-dashoffset", totalLength2)
+        .transition()
+        .duration(2000)
+        .ease(d3.easeLinear)
+        .attr("stroke-dashoffset", 0);
+    let totalLength3 = path3.node().getTotalLength();
+    path3.attr("stroke-dasharray", totalLength3 + " " + totalLength3)
+        .attr("stroke-dashoffset", totalLength3)
+        .transition()
+        .duration(2000)
+        .ease(d3.easeLinear)
+        .attr("stroke-dashoffset", 0);
 
 
     let focus = g.append("g")
@@ -135,53 +165,7 @@ const draw = (props) => {
         .style("display", "none");
 
 
-    // Append circles to each line
-    g.selectAll(".dot-homechart")
-        .data(homedata)
-        .enter()
-        .append("circle")
-        .attr("class", ".dot-homechart")
-        .attr("cx", function(d){
-            return xScale(d.month);
-        })
-        .attr("cy", function(d){
-            return yScale(d.taskCompleted);
-        })
-        .attr("r", radius)
-        .attr("fill", "#E14ECA");
-
-
-    g.selectAll(".dot-homechart")
-        .data(homedata)
-        .enter()
-        .append("circle")
-        .attr("class", ".dot-homechart")
-        .attr("cx", function(d){
-            return xScale(d.month);
-        })
-        .attr("cy", function(d){
-            return yScale(d.newEmployees);
-        })
-        .attr("r", radius)
-        .attr("fill", "#1F8EF1");
-        
-
-    g.selectAll(".dot-homechart")
-        .data(homedata)
-        .enter()
-        .append("circle")
-        .attr("class", ".dot-homechart")
-        .attr("cx", function(d){
-            return xScale(d.month);
-        })
-        .attr("cy", function(d){
-            return yScale(d.supplies);
-        })
-        .attr("r", radius)
-        .attr("fill", "#DC3545");
-        
-
-    g.append("rect")
+    svg.append("rect")
         .attr("class", "overlay")
         .attr("width", width)
         .attr("height", height)
@@ -191,13 +175,16 @@ const draw = (props) => {
             
             tooltip.transition()
                 .duration(200)
-                .style("opacity", 0.9); ; 
+                .style("opacity", 0.9); 
+
+
         })
         .on("mouseout", function() { 
             focus.style("display", "none");
             tooltip.transition()
                 .duration(200)
                 .style("opacity", 0); 
+
         })
         .on("mousemove", mousemove);
 
@@ -208,30 +195,24 @@ const draw = (props) => {
         .attr("y1", -height)
         .attr("y2", height)
         .attr("stroke", "white")
-        .attr("stroke-width", 3);
+        .attr("stroke-width", 2);
 
-    focus.append("rect")
-        .attr("class", "tooltip-homechart")
-        .attr("width", 100)
-            .attr("height", 50)
-            .attr("x", 10)
-            .attr("y", -22)
-            .attr("rx", 4)
-            .attr("ry", 4);
     
-
     function mousemove() {
         let x0 = xScale.invert(d3.mouse(this)[0]),
-            i = bisectDate(homedata, x0, 1),
-            d0 = homedata[i - 1],
-            d1 = homedata[i],
+            i = bisectDate(data, x0, 1),
+            d0 = data[i - 1],
+            d1 = data[i],
             d = x0 - d0.month > d1.month - x0 ? d1 : d0;
+
         focus.attr("transform", "translate(" + xScale(d.month) + "," + yScale(d.taskCompleted) + ")");
-        focus.select(".x-hover-line").attr("y2", height);
-        // focus.select(".y-hover-line").attr("x2", width + width);
+        // focus.attr("transform", "translate(" + xScale(d.month) + "," + yScale(d.newEmployees) + ")");
+        // focus.attr("transform", "translate(" + xScale(d.month) + "," + yScale(d.supplies) + ")");
+        
         tooltip.html(d3.timeFormat("%b")(d.month) + "<br />Task Completed: " + d.taskCompleted + "<br />New Employees: " + d.newEmployees + "<br />Supplies: " + d.supplies)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px");
+
     }
 
 

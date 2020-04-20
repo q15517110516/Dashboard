@@ -11,7 +11,6 @@ const homedata = [
     {"month": "2019-10-1", "taskCompleted": 175, "newEmployees": 362, "supplies": 146, "monthlyIncome": 2243221,},
     {"month": "2019-11-1", "taskCompleted": 365, "newEmployees": 249, "supplies": 253, "monthlyIncome": 1927462,},
     {"month": "2019-12-1", "taskCompleted": 265, "newEmployees": 335, "supplies": 271, "monthlyIncome": 1123212,},
-
 ]
 
 
