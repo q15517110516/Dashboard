@@ -33,10 +33,8 @@ const draw = (props) => {
                     
     // Append y grid lines
     function y_gridline(){
-        return d3.axisLeft(yScale).ticks(10);
+        return d3.axisLeft(yScale).ticks(5);
     }
-
-
     
 
     // Add Y axis
@@ -71,7 +69,6 @@ const draw = (props) => {
     // Add y grid lines
     svg.append("g")
         .attr("class", "grid")
-        .attr("transform", "translate(0," + width + ")")
         .call(y_gridline()
             .tickSize(-width)
             .tickFormat("")
