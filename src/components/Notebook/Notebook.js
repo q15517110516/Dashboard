@@ -14,12 +14,13 @@ export class Notebook extends Component {
                         <ToDoApp />
                     </div>
                 </div>
+                {/*}
                 <div className="notebook-taskCompleted">
                     <div className="title">Completed Task</div>
                     <div className="task">
                         <Task />
                     </div>
-                </div>
+                </div>*/}
                 
             </div>
             
