@@ -16,3 +16,19 @@
     padding: 0 30px 50px 30px;
     margin-right: 40px;
 }
+
+.notebook-taskCompleted {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    color: white;
+    font: 27px sans-serif;
+    background-color: #1E1E2F;
+    border-radius: 10px;
+    width: 40%;
+    min-width: 445px;
+    height: auto;
+    max-width: 100%;
+    padding: 0 30px 50px 30px;
+    margin-right: 40px;
+}

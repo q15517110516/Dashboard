@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Activities from './Activities';
 import './Home.css';
 import { AiOutlineCheckCircle, 
         AiOutlineDollar,
@@ -68,15 +67,8 @@ export class Home extends Component {
                         <HomeChart width={1400} height={500}/>
                     </div>
                 </div>
-
-                {/* Activities */}
-                <div className="home-activities">
-                    <div className="title">Activities</div>
-                    <div className="activities">
-                        <Activities />
-                    </div>
-                </div>
             </div>
+
         )
     }
 }

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './Activities.css';
+import './Task.css';
 
 
-export class Activities extends Component {
+export class Task extends Component {
     render() {
         return (
             <div className="activites">
@@ -16,4 +16,4 @@ export class Activities extends Component {
     }
 }
 
-export default Activities
+export default Task
